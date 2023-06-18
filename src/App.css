@@ -1,0 +1,13 @@
+html,
+body {
+  background-color: #47b1fb;
+  display: block;
+  color: white;
+  font-family: "Roboto";
+}
+
+header,
+footer {
+  text-align: center;
+  padding: 1rem;
+}
