@@ -3,10 +3,8 @@ import { Typography, Box } from "@mui/material";
 
 export default function Footer() {
   return (
-    <Box>
-      <footer>
-        <Typography variant="h1">Footer</Typography>
-      </footer>
-    </Box>
+    <footer>
+      <Typography variant="h1">Footer</Typography>
+    </footer>
   );
 }

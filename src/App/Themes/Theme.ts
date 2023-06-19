@@ -14,6 +14,7 @@ let AppTheme = createTheme({
       styleOverrides: {
         root: {
           backgroundColor: "#ffffff",
+          minHeight: "20vh",
         },
       },
     },

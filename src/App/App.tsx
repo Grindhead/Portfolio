@@ -10,14 +10,12 @@ import { Outlet } from "react-router-dom";
 
 function App() {
   return (
-    <Container>
-      <div className="App">
-        <Header />
-        <div className="App-body">
-          <Outlet />
-        </div>
-        <Footer />
-      </div>
+    <Container id="main" maxWidth={false} disableGutters={true}>
+      <Header />
+      <Container className="App-body" maxWidth={false}>
+        <Outlet />
+      </Container>
+      <Footer />
     </Container>
   );
 }

@@ -29,22 +29,22 @@ export default function Header() {
     <>
       <header>
         <Typography variant="h1">Header</Typography>
+        <Toolbar>
+          <div className={classes.navlinks}>
+            <Link to={"/"} className={classes.link}>
+              Home
+            </Link>
+
+            <Link to={"/about"} className={classes.link}>
+              About
+            </Link>
+
+            <Link to={"/admin"} className={classes.link}>
+              Admin
+            </Link>
+          </div>
+        </Toolbar>
       </header>
-      <Toolbar>
-        <div className={classes.navlinks}>
-          <Link to={"/"} className={classes.link}>
-            Home
-          </Link>
-
-          <Link to={"/about"} className={classes.link}>
-            About
-          </Link>
-
-          <Link to={"/admin"} className={classes.link}>
-            Admin
-          </Link>
-        </div>
-      </Toolbar>
     </>
   );
 }

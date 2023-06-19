@@ -1,6 +1,7 @@
-html,
-body {
-  display: block;
-  color: white;
-  font-family: "Roboto";
+.App-body {
+  min-height: 60vh;
+}
+
+#main {
+  min-width: 320px;
 }
