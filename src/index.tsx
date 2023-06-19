@@ -6,9 +6,11 @@ import { CssBaseline, ThemeProvider } from "@mui/material";
 import reportWebVitals from "./reportWebVitals";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import AppTheme from "./App/Themes/Theme";
-import { Home } from "./App/Pages/Home/Home";
-import { About } from "./App/Pages/About/About";
-import { Error } from "./App/Pages/Error/Error";
+import { lazy } from "react";
+
+const Home = lazy(() => import("./App/Pages/Home/Home"));
+const About = lazy(() => import("./App/Pages/About/About"));
+const Error = lazy(() => import("./App/Pages/Error/Error"));
 
 const router = createBrowserRouter([
   {

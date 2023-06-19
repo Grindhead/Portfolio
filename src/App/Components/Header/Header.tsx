@@ -39,7 +39,7 @@ export default function Header() {
               About
             </Link>
 
-            <Link to={"/admin"} className={classes.link}>
+            <Link to={"/create-post"} className={classes.link}>
               Admin
             </Link>
           </div>

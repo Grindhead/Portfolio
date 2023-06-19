@@ -1,7 +1,7 @@
 import { Typography } from "@material-ui/core";
 import { useRouteError } from "react-router-dom";
 
-export const Error = () => {
+const Error = () => {
   const error = useRouteError() as any;
   console.error(error);
 
@@ -11,3 +11,5 @@ export const Error = () => {
     </div>
   );
 };
+
+export default Error;
