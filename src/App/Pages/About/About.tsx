@@ -1,9 +1,9 @@
-import { Typography } from "@material-ui/core";
+import { Typography } from "@mui/material";
 
 const About = () => {
   return (
     <div>
-      <Typography component="h2">About</Typography>
+      <Typography variant="h2">About</Typography>
     </div>
   );
 };

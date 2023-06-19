@@ -39,8 +39,8 @@ export default function Header() {
               About
             </Link>
 
-            <Link to={"/create-post"} className={classes.link}>
-              Admin
+            <Link to={"/sign-up"} className={classes.link}>
+              Sign Up
             </Link>
           </div>
         </Toolbar>

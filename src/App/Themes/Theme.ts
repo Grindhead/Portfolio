@@ -10,11 +10,36 @@ let AppTheme = createTheme({
     },
   },
   components: {
+    MuiButton: {
+      styleOverrides: {
+        root: {
+          color: "white",
+        },
+      },
+    },
     MuiToolbar: {
       styleOverrides: {
         root: {
           backgroundColor: "#ffffff",
           minHeight: "20vh",
+        },
+      },
+    },
+    MuiInput: {
+      styleOverrides: {
+        root: {
+          "&.Mui-focused": {
+            background: "grey",
+          },
+        },
+      },
+    },
+    MuiFormLabel: {
+      styleOverrides: {
+        root: {
+          "&.Mui-focused": {
+            color: "black",
+          },
         },
       },
     },

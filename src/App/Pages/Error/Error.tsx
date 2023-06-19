@@ -1,4 +1,4 @@
-import { Typography } from "@material-ui/core";
+import { Typography } from "@mui/material";
 import { useRouteError } from "react-router-dom";
 
 const Error = () => {
@@ -7,7 +7,7 @@ const Error = () => {
 
   return (
     <div>
-      <Typography component="p">{error.statusText || error.message}</Typography>
+      <Typography variant="h1">{error.statusText || error.message}</Typography>
     </div>
   );
 };
