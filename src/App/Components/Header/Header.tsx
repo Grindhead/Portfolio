@@ -3,6 +3,8 @@ import { Link } from "react-router-dom";
 import { Typography, Toolbar } from "@mui/material";
 import { makeStyles } from "@mui/styles";
 import AppTheme from "../../Themes/Theme";
+import { Auth } from "../../Utils/Firebase";
+import { useNavigate } from "react-router-dom";
 
 const useStyles = makeStyles((theme: typeof AppTheme) => ({
   navlinks: {
@@ -23,7 +25,15 @@ const useStyles = makeStyles((theme: typeof AppTheme) => ({
 }));
 
 export default function Header() {
+  const navigate = useNavigate();
+
   const classes = useStyles();
+
+  const handleSignOut = async () => {
+    await Auth.signOut().then(() => {
+      navigate("/");
+    });
+  };
 
   return (
     <>
@@ -38,10 +48,19 @@ export default function Header() {
             <Link to={"/about"} className={classes.link}>
               About
             </Link>
-
-            <Link to={"/sign-up"} className={classes.link}>
-              Sign Up
-            </Link>
+            {Auth.currentUser ? (
+              <Link
+                to=""
+                onClick={() => handleSignOut()}
+                className={classes.link}
+              >
+                Sign Out
+              </Link>
+            ) : (
+              <Link to={"/sign-up"} className={classes.link}>
+                Sign In
+              </Link>
+            )}
           </div>
         </Toolbar>
       </header>

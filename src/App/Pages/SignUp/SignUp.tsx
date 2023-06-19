@@ -29,7 +29,6 @@ const SignUp = () => {
   const handleSignUp = () => {
     emailAndPassword(email, password).then((userCredential) => {
       if (userCredential instanceof Error) {
-        console.log("failed to sign up user");
         setError(userCredential.message);
       } else {
         navigate("/");
