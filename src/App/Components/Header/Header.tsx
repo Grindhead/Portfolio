@@ -1,5 +1,5 @@
-import { Link } from "@material-ui/core";
 import "./Header.css";
+import { Link } from "react-router-dom";
 import { Typography } from "@mui/material";
 
 export default function Header() {
@@ -9,8 +9,8 @@ export default function Header() {
         <Typography variant="h1">Header</Typography>
       </header>
       <nav>
-        <Link href="/">Home</Link>
-        <Link href="/about">About</Link>
+        <Link to={"/"}>Home</Link>
+        <Link to={"/about"}>About</Link>
       </nav>
     </>
   );
