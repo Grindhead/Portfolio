@@ -1,17 +1,50 @@
 import "./Header.css";
 import { Link } from "react-router-dom";
-import { Typography } from "@mui/material";
+import { Typography, Toolbar } from "@mui/material";
+import { makeStyles } from "@mui/styles";
+import AppTheme from "../../Themes/Theme";
+
+const useStyles = makeStyles((theme: typeof AppTheme) => ({
+  navlinks: {
+    display: "flex",
+    justifyContent: "center",
+    width: "100%",
+  },
+  link: {
+    textDecoration: "none",
+    "&:hover": {
+      color: "red",
+    },
+    maxWidth: "10%",
+    flexBasis: "10%",
+    marginRight: "1rem",
+    textAlign: "center",
+  },
+}));
 
 export default function Header() {
+  const classes = useStyles();
+
   return (
     <>
       <header>
         <Typography variant="h1">Header</Typography>
       </header>
-      <nav>
-        <Link to={"/"}>Home</Link>
-        <Link to={"/about"}>About</Link>
-      </nav>
+      <Toolbar>
+        <div className={classes.navlinks}>
+          <Link to={"/"} className={classes.link}>
+            Home
+          </Link>
+
+          <Link to={"/about"} className={classes.link}>
+            About
+          </Link>
+
+          <Link to={"/admin"} className={classes.link}>
+            Admin
+          </Link>
+        </div>
+      </Toolbar>
     </>
   );
 }

@@ -1,10 +1,11 @@
+import "./index.css";
 import React from "react";
 import ReactDOM from "react-dom/client";
-import "./index.css";
 import App from "./App/App";
-import CssBaseline from "@material-ui/core/CssBaseline";
+import { CssBaseline, ThemeProvider } from "@mui/material";
 import reportWebVitals from "./reportWebVitals";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import AppTheme from "./App/Themes/Theme";
 import { Home } from "./App/Pages/Home/Home";
 import { About } from "./App/Pages/About/About";
 import { Error } from "./App/Pages/Error/Error";
@@ -33,8 +34,10 @@ const root = ReactDOM.createRoot(
 
 root.render(
   <React.StrictMode>
-    <CssBaseline />
-    <RouterProvider router={router} />;
+    <ThemeProvider theme={AppTheme}>
+      <CssBaseline enableColorScheme />
+      <RouterProvider router={router} />
+    </ThemeProvider>
   </React.StrictMode>
 );
 

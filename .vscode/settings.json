@@ -1,5 +1,6 @@
 {
   "editor.formatOnSave": true,
+  "editor.formatOnPaste": false,
   "editor.formatOnSaveMode": "file",
   "editor.defaultFormatter": "rvest.vs-code-prettier-eslint",
   "css.customData": ["./.vscode/css-data.json"]

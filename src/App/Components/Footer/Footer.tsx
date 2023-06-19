@@ -1,10 +1,12 @@
 import "./Footer.css";
-import { Typography } from "@mui/material";
+import { Typography, Box } from "@mui/material";
 
 export default function Footer() {
   return (
-    <footer>
-      <Typography variant="h1">Footer</Typography>
-    </footer>
+    <Box>
+      <footer>
+        <Typography variant="h1">Footer</Typography>
+      </footer>
+    </Box>
   );
 }
