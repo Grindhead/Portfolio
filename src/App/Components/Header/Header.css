@@ -2,3 +2,8 @@ header {
   text-align: center;
   min-height: 20vh;
 }
+
+.logo {
+  margin: 0 auto;
+  padding: 20px;
+}

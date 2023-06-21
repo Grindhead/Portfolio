@@ -6,6 +6,7 @@ import AppTheme from "../../Themes/Theme";
 import { Auth } from "../../Utils/Firebase";
 import { useNavigate } from "react-router-dom";
 import { Pages } from "../../Utils/Pages";
+import Logo from "../../../Assets/images/logo.png";
 
 const useStyles = makeStyles((theme: typeof AppTheme) => ({
   navlinks: {
@@ -39,7 +40,7 @@ export default function Header() {
   return (
     <>
       <header>
-        <Typography variant="h1">Header</Typography>
+        <img src={Logo} alt="logo" className="logo" />
         <Toolbar>
           <div className={classes.navlinks}>
             <Link to={Pages.HOME} className={classes.link}>
