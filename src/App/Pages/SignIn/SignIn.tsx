@@ -3,6 +3,7 @@ import { Typography } from "@mui/material";
 import { emailAndPassword } from "../../Utils/Firebase";
 import { Link, useNavigate } from "react-router-dom";
 import { AuthForm } from "../../Components/AuthForm/AuthForm";
+import { Pages } from "../../Utils/Pages";
 
 const SignIn = () => {
   const [error, setError] = useState("");
@@ -14,7 +15,7 @@ const SignIn = () => {
       if (userCredential instanceof Error) {
         setError(userCredential.message);
       } else {
-        navigate("/");
+        navigate(Pages.HOME);
       }
     });
   };
@@ -25,7 +26,7 @@ const SignIn = () => {
       <AuthForm callback={handleSignIn} label="Sign In" />
       <br />
       <Typography variant="body1">
-        <Link to="/sign-up">Don't have an account? Sign Up</Link>
+        <Link to={Pages.SIGN_UP}>Don't have an account? Sign Up</Link>
       </Typography>
       {error && (
         <Typography variant="body1" color="error">

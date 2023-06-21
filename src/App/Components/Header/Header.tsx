@@ -5,6 +5,7 @@ import { makeStyles } from "@mui/styles";
 import AppTheme from "../../Themes/Theme";
 import { Auth } from "../../Utils/Firebase";
 import { useNavigate } from "react-router-dom";
+import { Pages } from "../../Utils/Pages";
 
 const useStyles = makeStyles((theme: typeof AppTheme) => ({
   navlinks: {
@@ -31,7 +32,7 @@ export default function Header() {
 
   const handleSignOut = async () => {
     await Auth.signOut().then(() => {
-      navigate("/logged-out");
+      navigate(Pages.LOGGED_OUT);
     });
   };
 
@@ -41,11 +42,11 @@ export default function Header() {
         <Typography variant="h1">Header</Typography>
         <Toolbar>
           <div className={classes.navlinks}>
-            <Link to={"/"} className={classes.link}>
+            <Link to={Pages.HOME} className={classes.link}>
               Home
             </Link>
 
-            <Link to={"/about"} className={classes.link}>
+            <Link to={Pages.ABOUT} className={classes.link}>
               About
             </Link>
             {Auth.currentUser ? (
@@ -57,7 +58,7 @@ export default function Header() {
                 Sign Out
               </Link>
             ) : (
-              <Link to={"/sign-up"} className={classes.link}>
+              <Link to={Pages.SIGN_IN} className={classes.link}>
                 Sign In
               </Link>
             )}
