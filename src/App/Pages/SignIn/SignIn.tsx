@@ -4,12 +4,12 @@ import { emailAndPassword } from "../../Utils/Firebase";
 import { Link, useNavigate } from "react-router-dom";
 import { AuthForm } from "../../Components/AuthForm/AuthForm";
 
-const SignUp = () => {
+const SignIn = () => {
   const [error, setError] = useState("");
 
   const navigate = useNavigate();
 
-  const handleSignUp = (email: string, password: string) => {
+  const handleSignIn = (email: string, password: string) => {
     emailAndPassword(email, password).then((userCredential) => {
       if (userCredential instanceof Error) {
         setError(userCredential.message);
@@ -22,10 +22,10 @@ const SignUp = () => {
   return (
     <div>
       <Typography variant="h2">SignIn</Typography>
-      <AuthForm handleSignUp={handleSignUp} label="Sign Up" />
+      <AuthForm handleSignUp={handleSignIn} label="Sign In" />
       <br />
       <Typography variant="body1" color="error">
-        Don't have an account? <Link to="/sign-up">Sign Up</Link>
+        Have an account already? <Link to="/sign-in">Sign in</Link>
       </Typography>
       {error && (
         <Typography variant="body1" color="error">
@@ -36,4 +36,4 @@ const SignUp = () => {
   );
 };
 
-export default SignUp;
+export default SignIn;

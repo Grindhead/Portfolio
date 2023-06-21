@@ -10,9 +10,10 @@ import { Visibility, VisibilityOff } from "@mui/icons-material";
 
 interface AuthFormProps {
   handleSignUp: (email: string, password: string) => void;
+  label: string;
 }
 
-export const AuthForm = ({ handleSignUp }: AuthFormProps) => {
+export const AuthForm = ({ handleSignUp, label }: AuthFormProps) => {
   const [showPassword, setShowPassword] = useState(false);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -60,7 +61,7 @@ export const AuthForm = ({ handleSignUp }: AuthFormProps) => {
           ),
         }}
       />
-      <Button onClick={() => handleSignUp(email, password)}>Sign Up</Button>
+      <Button onClick={() => handleSignUp(email, password)}>{label}</Button>
     </Box>
   );
 };

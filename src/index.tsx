@@ -7,6 +7,7 @@ import reportWebVitals from "./reportWebVitals";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import AppTheme from "./App/Themes/Theme";
 import { lazy } from "react";
+import SignIn from "./App/Pages/SignIn/SignIn";
 
 const Home = lazy(() => import("./App/Pages/Home/Home"));
 const About = lazy(() => import("./App/Pages/About/About"));
@@ -30,6 +31,10 @@ const router = createBrowserRouter([
       {
         path: "/sign-up",
         element: <SignUp />,
+      },
+      {
+        path: "/sign-in",
+        element: <SignIn />,
       },
     ],
   },
