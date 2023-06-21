@@ -21,11 +21,11 @@ const SignIn = () => {
 
   return (
     <div>
-      <Typography variant="h2">SignIn</Typography>
-      <AuthForm handleSignUp={handleSignIn} label="Sign In" />
+      <Typography variant="h2">Sign In</Typography>
+      <AuthForm callback={handleSignIn} label="Sign In" />
       <br />
-      <Typography variant="body1" color="error">
-        Have an account already? <Link to="/sign-in">Sign in</Link>
+      <Typography variant="body1">
+        <Link to="/sign-up">Don't have an account? Sign Up</Link>
       </Typography>
       {error && (
         <Typography variant="body1" color="error">

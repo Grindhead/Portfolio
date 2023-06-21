@@ -9,11 +9,11 @@ import { useState } from "react";
 import { Visibility, VisibilityOff } from "@mui/icons-material";
 
 interface AuthFormProps {
-  handleSignUp: (email: string, password: string) => void;
+  callback: (email: string, password: string) => void;
   label: string;
 }
 
-export const AuthForm = ({ handleSignUp, label }: AuthFormProps) => {
+export const AuthForm = ({ callback, label }: AuthFormProps) => {
   const [showPassword, setShowPassword] = useState(false);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -61,7 +61,7 @@ export const AuthForm = ({ handleSignUp, label }: AuthFormProps) => {
           ),
         }}
       />
-      <Button onClick={() => handleSignUp(email, password)}>{label}</Button>
+      <Button onClick={() => callback(email, password)}>{label}</Button>
     </Box>
   );
 };

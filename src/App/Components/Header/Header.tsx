@@ -31,7 +31,7 @@ export default function Header() {
 
   const handleSignOut = async () => {
     await Auth.signOut().then(() => {
-      navigate("/");
+      navigate("/logged-out");
     });
   };
 
