@@ -1,9 +1,10 @@
 import { useState } from "react";
 import { Typography } from "@mui/material";
-import { emailAndPassword } from "../../Utils/Firebase";
+import { emailAndPassword } from "../../Utils/FirebaseAuth";
 import { Link, useNavigate } from "react-router-dom";
 import { AuthForm } from "../../Components/AuthForm/AuthForm";
 import { Pages } from "../../Utils/Pages";
+import { User } from "firebase/auth";
 
 const SignIn = () => {
   const [error, setError] = useState("");
@@ -11,7 +12,7 @@ const SignIn = () => {
   const navigate = useNavigate();
 
   const handleSignIn = (email: string, password: string) => {
-    emailAndPassword(email, password).then((userCredential) => {
+    emailAndPassword(email, password).then((userCredential: User | Error) => {
       if (userCredential instanceof Error) {
         setError(userCredential.message);
       } else {

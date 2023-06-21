@@ -7,7 +7,6 @@ import { Auth } from "../../Utils/Firebase";
 import { useNavigate } from "react-router-dom";
 import { Pages } from "../../Utils/Pages";
 import Logo from "../../../Assets/images/logo.png";
-import { MouseEventHandler } from "react";
 
 const useStyles = makeStyles((theme: typeof AppTheme) => ({
   navlinks: {

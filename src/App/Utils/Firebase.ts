@@ -1,6 +1,6 @@
 import { initializeApp } from "firebase/app";
 import { getAnalytics } from "firebase/analytics";
-import { getAuth, User, signInWithEmailAndPassword } from "firebase/auth";
+import { getAuth } from "firebase/auth";
 
 const firebaseConfig = {
   apiKey: "AIzaSyACnI8oIQlZ_FAMk16fbsIsWu2aQFyiSqU",
@@ -17,22 +17,3 @@ const firebaseConfig = {
 export const App = initializeApp(firebaseConfig);
 export const Analytics = getAnalytics(App);
 export const Auth = getAuth(App);
-
-export const emailAndPassword = async (
-  email: string,
-  password: string
-): Promise<User | Error> => {
-  try {
-    const userCredential = await signInWithEmailAndPassword(
-      Auth,
-      email,
-      password
-    );
-    return userCredential.user;
-  } catch (error: any) {
-    const errorCode = error.code;
-    const errorMessage = error.message;
-    console.log(errorCode, errorMessage);
-    return error;
-  }
-};

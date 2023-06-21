@@ -22,7 +22,6 @@ const CreatePost = () => {
 
       <TextareaAutosize
         aria-label="Post Content"
-        minRows={10}
         placeholder="Enter your post here"
         value={content}
         onChange={(e) => setContent(e.target.value)}

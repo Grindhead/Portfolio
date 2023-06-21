@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Typography } from "@mui/material";
-import { emailAndPassword } from "../../Utils/Firebase";
+import { User } from "firebase/auth";
+import { emailAndPassword } from "../../Utils/FirebaseAuth";
 import { Link, useNavigate } from "react-router-dom";
 import { AuthForm } from "../../Components/AuthForm/AuthForm";
 import { Pages } from "../../Utils/Pages";
@@ -11,7 +12,7 @@ const SignUp = () => {
   const navigate = useNavigate();
 
   const handleSignUp = (email: string, password: string) => {
-    emailAndPassword(email, password).then((userCredential) => {
+    emailAndPassword(email, password).then((userCredential: User | Error) => {
       if (userCredential instanceof Error) {
         setError(userCredential.message);
       } else {
