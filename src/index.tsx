@@ -9,6 +9,7 @@ import AppTheme from "./App/Themes/Theme";
 import { lazy } from "react";
 import SignIn from "./App/Pages/SignIn/SignIn";
 import LoggedOut from "./App/Pages/LoggedOut/LoggedOut";
+import { Pages } from "./App/Utils/Pages";
 
 const Home = lazy(() => import("./App/Pages/Home/Home"));
 const About = lazy(() => import("./App/Pages/About/About"));
@@ -22,23 +23,23 @@ const router = createBrowserRouter([
     errorElement: <Error />,
     children: [
       {
-        path: "/",
+        path: Pages.HOME,
         element: <Home />,
       },
       {
-        path: "/about",
+        path: Pages.ABOUT,
         element: <About />,
       },
       {
-        path: "/sign-up",
+        path: Pages.SIGN_UP,
         element: <SignUp />,
       },
       {
-        path: "/sign-in",
+        path: Pages.SIGN_IN,
         element: <SignIn />,
       },
       {
-        path: "/logged-out",
+        path: Pages.LOGGED_OUT,
         element: <LoggedOut />,
       },
     ],
