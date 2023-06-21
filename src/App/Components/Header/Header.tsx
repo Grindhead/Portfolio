@@ -1,5 +1,5 @@
 import "./Header.css";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import { Toolbar } from "@mui/material";
 import { makeStyles } from "@mui/styles";
 import AppTheme from "../../Themes/Theme";
@@ -7,6 +7,7 @@ import { Auth } from "../../Utils/Firebase";
 import { useNavigate } from "react-router-dom";
 import { Pages } from "../../Utils/Pages";
 import Logo from "../../../Assets/images/logo.png";
+import { MouseEventHandler } from "react";
 
 const useStyles = makeStyles((theme: typeof AppTheme) => ({
   navlinks: {
@@ -23,6 +24,9 @@ const useStyles = makeStyles((theme: typeof AppTheme) => ({
     flexBasis: "10%",
     marginRight: "1rem",
     textAlign: "center",
+    "&.active": {
+      fontWeight: "bold",
+    },
   },
 }));
 
@@ -31,7 +35,8 @@ export default function Header() {
 
   const classes = useStyles();
 
-  const handleSignOut = async () => {
+  const handleSignOut = async (e: React.MouseEvent<HTMLAnchorElement>) => {
+    e.preventDefault();
     await Auth.signOut().then(() => {
       navigate(Pages.LOGGED_OUT);
     });
@@ -43,30 +48,33 @@ export default function Header() {
         <img src={Logo} alt="logo" className="logo" />
         <Toolbar>
           <div className={classes.navlinks}>
-            <Link to={Pages.HOME} className={classes.link}>
+            <NavLink to={Pages.HOME} className={classes.link}>
               Home
-            </Link>
+            </NavLink>
 
-            <Link to={Pages.ABOUT} className={classes.link}>
+            <NavLink to={Pages.ABOUT} className={classes.link}>
               About
-            </Link>
+            </NavLink>
             {Auth.currentUser ? (
-              <Link to={Pages.CREATE_POST} className={classes.link}>
+              <NavLink to={Pages.CREATE_POST} className={classes.link}>
                 Create Post
-              </Link>
+              </NavLink>
             ) : null}
             {Auth.currentUser ? (
-              <Link
-                to=""
-                onClick={() => handleSignOut()}
+              <NavLink
+                to={Pages.LOGGED_OUT}
+                onClick={(event: React.MouseEvent<HTMLAnchorElement>) =>
+                  handleSignOut(event)
+                }
+                end
                 className={classes.link}
               >
                 Sign Out
-              </Link>
+              </NavLink>
             ) : (
-              <Link to={Pages.SIGN_IN} className={classes.link}>
+              <NavLink to={Pages.SIGN_IN} className={classes.link}>
                 Sign In
-              </Link>
+              </NavLink>
             )}
           </div>
         </Toolbar>
