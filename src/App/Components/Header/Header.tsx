@@ -1,6 +1,6 @@
 import "./Header.css";
 import { Link } from "react-router-dom";
-import { Typography, Toolbar } from "@mui/material";
+import { Toolbar } from "@mui/material";
 import { makeStyles } from "@mui/styles";
 import AppTheme from "../../Themes/Theme";
 import { Auth } from "../../Utils/Firebase";
@@ -50,6 +50,11 @@ export default function Header() {
             <Link to={Pages.ABOUT} className={classes.link}>
               About
             </Link>
+            {Auth.currentUser ? (
+              <Link to={Pages.CREATE_POST} className={classes.link}>
+                Create Post
+              </Link>
+            ) : null}
             {Auth.currentUser ? (
               <Link
                 to=""

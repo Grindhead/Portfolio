@@ -4,4 +4,5 @@ export const Pages = {
   ABOUT: "/about",
   HOME: "/",
   LOGGED_OUT: "/logged-out",
+  CREATE_POST: "/create-post",
 };
