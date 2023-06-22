@@ -27,7 +27,7 @@ const SignUp = () => {
       <AuthForm callback={handleSignUp} label="Sign Up" />
       <br />
       <Typography variant="body1">
-        <Link to={Pages.SIGN_IN}>Have an account already? Sign in</Link>
+        <Link to={Pages.SIGN_IN}>Have an account already? Sign In</Link>
       </Typography>
       {error && (
         <Typography variant="body1" color="error">

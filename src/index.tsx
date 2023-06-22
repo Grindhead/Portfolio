@@ -11,6 +11,7 @@ import SignIn from "./App/Pages/SignIn/SignIn";
 import LoggedOut from "./App/Pages/LoggedOut/LoggedOut";
 import { Pages } from "./App/Utils/Pages";
 import CreatePost from "./App/Pages/CreatePost/CreatePost";
+import PostCreated from "./App/Pages/PostCreated/PostCreated";
 
 const Home = lazy(() => import("./App/Pages/Home/Home"));
 const About = lazy(() => import("./App/Pages/About/About"));
@@ -46,6 +47,10 @@ const router = createBrowserRouter([
       {
         path: Pages.CREATE_POST,
         element: <CreatePost />,
+      },
+      {
+        path: Pages.POST_CREATED,
+        element: <PostCreated />,
       },
     ],
   },

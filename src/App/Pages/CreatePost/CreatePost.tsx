@@ -1,13 +1,24 @@
 import { TextField, Typography, Button } from "@mui/material";
 import TextareaAutosize from "@mui/base/TextareaAutosize";
 import { useState } from "react";
+import { addPost } from "../../Utils/FirebasePosts";
+import { useNavigate } from "react-router-dom";
+import { Pages } from "../../Utils/Pages";
 
 const CreatePost = () => {
   const [title, setTitle] = useState("");
   const [content, setContent] = useState("");
 
-  const submitPost = () => {};
-  // https://mui.com/base-ui/react-textarea-autosize/
+  const navigate = useNavigate();
+
+  const submitPost = () => {
+    addPost(title, content);
+
+    console.log("sdsdsdsdsdsdsds");
+
+    navigate(Pages.POST_CREATED);
+  };
+
   return (
     <div>
       <Typography variant="h2">Create Post</Typography>
