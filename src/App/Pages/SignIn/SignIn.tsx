@@ -12,9 +12,9 @@ const SignIn = () => {
   const navigate = useNavigate();
 
   const handleSignIn = (email: string, password: string) => {
-    emailAndPassword(email, password).then((userCredential: User | Error) => {
-      if (userCredential instanceof Error) {
-        setError(userCredential.message);
+    emailAndPassword(email, password).then((response: User | Error) => {
+      if (response instanceof Error) {
+        setError(response.message);
       } else {
         navigate(Pages.HOME);
       }

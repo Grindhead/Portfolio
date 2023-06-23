@@ -3,6 +3,11 @@ import { getAnalytics } from "firebase/analytics";
 import { getAuth } from "firebase/auth";
 import { getFirestore } from "firebase/firestore";
 
+// delete for prod use.
+import { getFunctions, connectFunctionsEmulator } from "firebase/functions";
+import { connectFirestoreEmulator } from "firebase/firestore";
+import { getApp } from "firebase/app";
+
 const firebaseConfig = {
   apiKey: "AIzaSyACnI8oIQlZ_FAMk16fbsIsWu2aQFyiSqU",
   authDomain: "portfolio-71c20.firebaseapp.com",
@@ -19,3 +24,7 @@ export const App = initializeApp(firebaseConfig);
 export const Analytics = getAnalytics(App);
 export const Auth = getAuth(App);
 export const Db = getFirestore(App);
+
+// const functions = getFunctions(getApp());
+// connectFunctionsEmulator(functions, "127.0.0.1", 5001);
+// connectFirestoreEmulator(Db, "127.0.0.1", 8080);

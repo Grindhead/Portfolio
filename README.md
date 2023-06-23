@@ -2,6 +2,13 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+To test Firebase functions locally you will need the firebase cli. To install this globally, run:
+
+`npm install -g firebase-tools`
+
+Then run:
+`npm serve` from firebase-functions/functions directory
+
 ## Available Scripts
 
 In the project directory, you can run:

@@ -13,9 +13,6 @@ const CreatePost = () => {
 
   const submitPost = () => {
     addPost(title, content);
-
-    console.log("sdsdsdsdsdsdsds");
-
     navigate(Pages.POST_CREATED);
   };
 
