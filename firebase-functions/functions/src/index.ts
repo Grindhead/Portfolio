@@ -13,5 +13,16 @@ exports.addPostToAuthor = functions.firestore
     const authorData = authorSnap.data();
     const updatedPosts = authorData?.posts || [];
     updatedPosts.push(context.params.postId);
+
+    const currentDate = new Date().toLocaleDateString();
+    const currentTime = new Date().toLocaleTimeString();
+    const postDocRef = snapshot.ref;
+    await postDocRef.update({
+      publish: false,
+      date: currentDate,
+      time: currentTime,
+      authorId,
+    });
+
     return await authorRef.set({posts: updatedPosts}, {merge: true});
   });
