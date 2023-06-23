@@ -1,5 +1,6 @@
 import { TextField, Typography, Button } from "@mui/material";
-import TextareaAutosize from "@mui/base/TextareaAutosize";
+import ReactQuill from "react-quill";
+import "react-quill/dist/quill.snow.css";
 import { useState } from "react";
 import { addPost } from "../../Utils/FirebasePosts";
 import { useNavigate } from "react-router-dom";
@@ -28,12 +29,33 @@ const CreatePost = () => {
         onChange={(e) => setTitle(e.target.value)}
       />
 
-      <TextareaAutosize
-        aria-label="Post Content"
-        placeholder="Enter your post here"
+      <ReactQuill
         value={content}
-        onChange={(e) => setContent(e.target.value)}
+        onChange={setContent}
+        placeholder="Enter your post here"
+        modules={{
+          toolbar: [
+            [{ header: [1, 2, false] }],
+            ["bold", "italic", "underline", "strike", "blockquote"],
+            [{ list: "ordered" }, { list: "bullet" }],
+            ["link", "image"],
+            ["clean"],
+          ],
+        }}
+        formats={[
+          "header",
+          "bold",
+          "italic",
+          "underline",
+          "strike",
+          "blockquote",
+          "list",
+          "bullet",
+          "link",
+          "image",
+        ]}
       />
+
       <br />
       <Button onClick={submitPost}>Submit Post</Button>
     </div>
