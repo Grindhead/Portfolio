@@ -1,7 +1,11 @@
 #content {
-  min-height: 60vh;
+  flex: 70%;
+  min-height: 70%;
 }
 
 #main {
   min-width: 320px;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
 }

@@ -1,6 +1,6 @@
 header {
   text-align: center;
-  min-height: 20vh;
+  flex: 20%;
 }
 
 .logo {
