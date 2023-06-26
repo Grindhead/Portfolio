@@ -52,6 +52,10 @@ const router = createBrowserRouter([
         path: Pages.POST_CREATED,
         element: <PostCreated />,
       },
+      {
+        path: Pages.SEARCH,
+        element: <PostCreated />,
+      },
     ],
   },
 ]);

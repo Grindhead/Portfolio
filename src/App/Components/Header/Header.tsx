@@ -47,6 +47,7 @@ export default function Header() {
 
   const handleClickSearch = (e: React.MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
+    navigate(`${Pages.SEARCH}:${searchTerm}`);
   };
 
   const handleMouseDownSearch = (e: React.MouseEvent<HTMLButtonElement>) => {
