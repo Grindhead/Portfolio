@@ -1,11 +1,13 @@
 import "./Header.css";
 import { NavLink } from "react-router-dom";
-import { Toolbar } from "@mui/material";
+import { Toolbar, TextField, InputAdornment, IconButton } from "@mui/material";
 import { makeStyles } from "@mui/styles";
-import AppTheme from "../../Themes/Theme";
 import { Auth } from "../../Utils/Firebase";
 import { useNavigate } from "react-router-dom";
 import { Pages } from "../../Utils/Pages";
+import { useState } from "react";
+import SearchIcon from "@mui/icons-material/Search";
+import AppTheme from "../../Themes/Theme";
 import Logo from "../../../Assets/images/logo.png";
 
 const useStyles = makeStyles((theme: typeof AppTheme) => ({
@@ -13,6 +15,7 @@ const useStyles = makeStyles((theme: typeof AppTheme) => ({
     display: "flex",
     justifyContent: "center",
     width: "100%",
+    alignItems: "center",
   },
   link: {
     textDecoration: "none",
@@ -30,8 +33,9 @@ const useStyles = makeStyles((theme: typeof AppTheme) => ({
 }));
 
 export default function Header() {
-  const navigate = useNavigate();
+  const [searchTerm, setSearchTerm] = useState("");
 
+  const navigate = useNavigate();
   const classes = useStyles();
 
   const handleSignOut = async (e: React.MouseEvent<HTMLAnchorElement>) => {
@@ -39,6 +43,14 @@ export default function Header() {
     await Auth.signOut().then(() => {
       navigate(Pages.LOGGED_OUT);
     });
+  };
+
+  const handleClickSearch = (e: React.MouseEvent<HTMLButtonElement>) => {
+    e.preventDefault();
+  };
+
+  const handleMouseDownSearch = (e: React.MouseEvent<HTMLButtonElement>) => {
+    e.preventDefault();
   };
 
   return (
@@ -75,6 +87,28 @@ export default function Header() {
                 Sign In
               </NavLink>
             )}
+            <TextField
+              type="search"
+              id="search"
+              label="Search"
+              variant="outlined"
+              className="search"
+              value={searchTerm}
+              onChange={(e) => setSearchTerm(e.target.value)}
+              InputProps={{
+                endAdornment: (
+                  <InputAdornment position="end">
+                    <IconButton
+                      aria-label="search"
+                      onClick={handleClickSearch}
+                      onMouseDown={handleMouseDownSearch}
+                    >
+                      <SearchIcon />
+                    </IconButton>
+                  </InputAdornment>
+                ),
+              }}
+            />
           </div>
         </Toolbar>
       </header>

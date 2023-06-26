@@ -4,9 +4,9 @@ import { getAuth } from "firebase/auth";
 import { getFirestore } from "firebase/firestore";
 
 // delete for prod use.
-import { getFunctions, connectFunctionsEmulator } from "firebase/functions";
-import { connectFirestoreEmulator } from "firebase/firestore";
-import { getApp } from "firebase/app";
+// import { getFunctions, connectFunctionsEmulator } from "firebase/functions";
+// import { connectFirestoreEmulator } from "firebase/firestore";
+// import { getApp } from "firebase/app";
 
 const firebaseConfig = {
   apiKey: "AIzaSyACnI8oIQlZ_FAMk16fbsIsWu2aQFyiSqU",
