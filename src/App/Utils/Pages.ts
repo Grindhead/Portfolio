@@ -4,7 +4,10 @@ export const Pages = {
   ABOUT: "/about",
   HOME: "/",
   LOGGED_OUT: "/logged-out",
-  CREATE_POST: "/create-post",
-  POST_CREATED: "/post-created",
   SEARCH: "/search",
+  CREATE_POST: "/post/create",
+  POST_CREATED: "/post/created",
+  VIEW_POST: "/post/:id",
+  EDIT_POST: "/post/edit/:id",
+  POST_DELETED: "/post/deleted",
 };

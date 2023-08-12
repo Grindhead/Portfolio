@@ -6,9 +6,9 @@ import { Editor } from "../../Components/Editor/Editor";
 
 const CreatePost = () => {
   const navigate = useNavigate();
-  const pageName = "Submit Post";
+  const pageName = "Edit Post";
 
-  const submitPost = (title: string, description: string, content: string) => {
+  const editPost = (title: string, description: string, content: string) => {
     addPost(title, description, content);
     navigate(Pages.POST_CREATED);
   };
@@ -16,7 +16,7 @@ const CreatePost = () => {
   return (
     <div>
       <Typography variant="h2">{pageName}</Typography>
-      <Editor callback={submitPost} buttonLabel={pageName} />
+      <Editor callback={editPost} buttonLabel={pageName} />
     </div>
   );
 };

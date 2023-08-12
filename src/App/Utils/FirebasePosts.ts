@@ -1,7 +1,11 @@
 import { collection, addDoc, getDocs, query, where } from "firebase/firestore";
 import { Db, Auth } from "./Firebase";
 
-export const addPost = async (title: string, body: string): Promise<void> => {
+export const addPost = async (
+  title: string,
+  description: string,
+  body: string
+): Promise<void> => {
   const usersRef = collection(Db, "users");
   const querySnapshot = await getDocs(
     query(usersRef, where("uid", "==", Auth.currentUser?.uid))
@@ -12,6 +16,7 @@ export const addPost = async (title: string, body: string): Promise<void> => {
 
   await addDoc(collection(Db, "posts"), {
     title,
+    description,
     body,
     authorId: userId,
   });

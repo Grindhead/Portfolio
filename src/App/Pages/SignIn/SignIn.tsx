@@ -1,7 +1,7 @@
 import { useState } from "react";
-import { Typography } from "@mui/material";
+import { Typography, Link, Box } from "@mui/material";
 import { emailAndPassword } from "../../Utils/FirebaseAuth";
-import { Link, useNavigate } from "react-router-dom";
+import { Link as RouterLink, useNavigate } from "react-router-dom";
 import { AuthForm } from "../../Components/AuthForm/AuthForm";
 import { Pages } from "../../Utils/Pages";
 import { User } from "firebase/auth";
@@ -22,19 +22,22 @@ const SignIn = () => {
   };
 
   return (
-    <div>
+    <Box sx={{ width: "50%" }}>
       <Typography variant="h2">Sign In</Typography>
       <AuthForm callback={handleSignIn} label="Sign In" />
       <br />
       <Typography variant="body1">
-        <Link to={Pages.SIGN_UP}>Don't have an account? Sign Up</Link>
+        Don't have an account?{" "}
+        <Link component={RouterLink} to={Pages.SIGN_UP}>
+          Sign Up
+        </Link>
       </Typography>
       {error && (
         <Typography variant="body1" color="error">
           {error}
         </Typography>
       )}
-    </div>
+    </Box>
   );
 };
 

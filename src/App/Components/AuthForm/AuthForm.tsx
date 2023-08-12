@@ -1,9 +1,9 @@
 import {
-  Box,
   TextField,
   InputAdornment,
   IconButton,
   Button,
+  Box,
 } from "@mui/material";
 import { useState } from "react";
 import { Visibility, VisibilityOff } from "@mui/icons-material";
@@ -27,24 +27,27 @@ export const AuthForm = ({ callback, label }: AuthFormProps) => {
   };
 
   return (
-    <Box component="form">
+    <Box>
       <TextField
         id="email"
+        name="email"
+        type="email"
         label="Email Address"
-        variant="standard"
-        fullWidth
+        autoFocus
+        required
+        variant="outlined"
         value={email}
+        color="secondary"
         onChange={(e) => setEmail(e.target.value)}
       />
       <br />
       <TextField
-        fullWidth
         id="password"
         label="Password"
-        variant="standard"
         type={showPassword ? "text" : "password"}
-        autoComplete="current-password"
+        autoComplete="off"
         value={password}
+        required
         onChange={(e) => setPassword(e.target.value)}
         InputProps={{
           endAdornment: (
@@ -61,7 +64,9 @@ export const AuthForm = ({ callback, label }: AuthFormProps) => {
           ),
         }}
       />
-      <Button onClick={() => callback(email, password)}>{label}</Button>
+      <Button variant="contained" onClick={() => callback(email, password)}>
+        {label}
+      </Button>
     </Box>
   );
 };

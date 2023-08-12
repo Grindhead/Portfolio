@@ -7,7 +7,7 @@ import { useNavigate } from "react-router-dom";
 import { Pages } from "../../Utils/Pages";
 import { useState } from "react";
 import SearchIcon from "@mui/icons-material/Search";
-import AppTheme from "../../Themes/Theme";
+import AppTheme, { tertiary } from "../../Themes/Theme";
 import Logo from "../../../Assets/images/logo.png";
 
 const useStyles = makeStyles((theme: typeof AppTheme) => ({
@@ -19,15 +19,16 @@ const useStyles = makeStyles((theme: typeof AppTheme) => ({
   },
   link: {
     textDecoration: "none",
-    "&:hover": {
-      color: "red",
-    },
     maxWidth: "10%",
     flexBasis: "10%",
     marginRight: "1rem",
     textAlign: "center",
-    "&.active": {
+    "&:active": {
       fontWeight: "bold",
+    },
+    "&:hover": {
+      fontWeight: "bold",
+      color: tertiary,
     },
   },
 }));

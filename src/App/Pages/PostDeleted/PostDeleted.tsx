@@ -2,14 +2,13 @@ import { Typography } from "@mui/material";
 import { Link } from "react-router-dom";
 import { Pages } from "../../Utils/Pages";
 
-const PostCreated = () => {
+const PostDeleted = () => {
   return (
     <div>
-      <Typography variant="h1">Post Created</Typography>
-      <Link to={Pages.VIEW_POST}>View Your Post</Link>
+      <Typography variant="h1">Your Post Has Been Deleted</Typography>
       <Link to={Pages.HOME}>Return to Homepage</Link>
     </div>
   );
 };
 
-export default PostCreated;
+export default PostDeleted;

@@ -1,19 +1,78 @@
 import { createTheme, responsiveFontSizes } from "@mui/material/styles";
 
+export const primary: string = "#47b1fb";
+export const secondary: string = "#FFFFFF";
+export const tertiary: string = "#fb4848";
+
 let AppTheme = createTheme({
   palette: {
     primary: {
-      main: "#47b1fb",
+      main: primary,
     },
+    secondary: {
+      main: secondary,
+    },
+
     background: {
       default: "#47b1fb",
     },
   },
   components: {
+    MuiTypography: {
+      styleOverrides: {
+        h2: {
+          color: "white",
+          margin: "1rem 0",
+        },
+      },
+    },
     MuiButton: {
       styleOverrides: {
         root: {
+          color: "black",
+          margin: "1rem 0",
+          padding: "1rem 6rem",
+          borderRadius: "14px",
+          width: "auto",
+          backgroundColor: "white",
+          "&:hover": {
+            color: "black",
+            fontWeight: "bold",
+            backgroundColor: "rgba(256,256,256, 0.75)",
+          },
+        },
+      },
+    },
+    MuiIconButton: {
+      styleOverrides: {
+        root: {
+          color: primary,
+          "&:hover": {
+            color: "#000000",
+          },
+        },
+      },
+    },
+    MuiLink: {
+      styleOverrides: {
+        root: {
           color: "white",
+          padding: "0.5rem",
+          "&:hover": {
+            color: "black",
+            fontWeight: "bold",
+          },
+        },
+      },
+    },
+    MuiFormControl: {
+      styleOverrides: {},
+    },
+    MuiTextField: {
+      styleOverrides: {
+        root: {
+          width: "100%",
+          margin: "10px 0",
         },
       },
     },
@@ -25,21 +84,34 @@ let AppTheme = createTheme({
         },
       },
     },
-    MuiInput: {
+    MuiOutlinedInput: {
       styleOverrides: {
         root: {
+          borderRadius: "25px",
+          background: "white",
           "&.Mui-focused": {
-            background: "grey",
+            borderColor: "#FFFFFF",
+            borderStlye: "solid",
           },
+          variant: "outlined",
+          size: "medium",
         },
       },
     },
     MuiFormLabel: {
       styleOverrides: {
         root: {
+          color: "black",
           "&.Mui-focused": {
             color: "black",
           },
+        },
+      },
+    },
+    MuiInputAdornment: {
+      styleOverrides: {
+        root: {
+          margin: "1em",
         },
       },
     },
