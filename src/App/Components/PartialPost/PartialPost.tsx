@@ -1,15 +1,15 @@
 import { Box, Typography } from "@mui/material";
+import { PostType } from "../../Utils/Post";
 
 interface PostProps {
-  title: string;
-  content: string;
+  post: PostType;
 }
 
-export const PartialPost = ({ title, content }: PostProps) => {
+export const PartialPost = ({ post }: PostProps) => {
   return (
     <Box>
-      <Typography variant="h2">{title}</Typography>
-      <Typography variant="h2">{content}</Typography>
+      <Typography variant="h2">{post.title}</Typography>
+      <Typography variant="h2">{post.description}</Typography>
     </Box>
   );
 };
