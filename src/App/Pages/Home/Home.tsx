@@ -1,34 +1,44 @@
-import { useEffect, useRef } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { Typography } from "@mui/material";
 import { loadPosts } from "../../Utils/FirebasePosts";
 import { PostType } from "../../Utils/Post";
+import { Preloader } from "../../Components/Preloader/Preloader";
 
 const Home = () => {
   const pageSize = 10;
   const pageNum = useRef<string>("0");
-  let currentPosts = useRef<PostType[]>([]);
-  let isLoading = useRef<boolean>(false);
+  const [isLoading, setIsLoading] = useState<boolean>(false);
+  const [hasLoaded, setHasLoaded] = useState<boolean>(false);
+  const [posts, setPosts] = useState<PostType[]>([]);
 
   useEffect(() => {
     const getPosts = async () => {
-      currentPosts.current = await loadPosts(pageNum.current, pageSize);
+      setIsLoading(true);
+      const loadedPosts = await loadPosts(pageNum.current, pageSize);
       pageNum.current += pageSize;
-      currentPosts.current.forEach((item, index) => {
-        console.log(item, index);
-      });
-      isLoading.current = false;
+      setPosts((prevPosts) => [...prevPosts, ...loadedPosts]);
+      setIsLoading(false);
+      setHasLoaded(true);
     };
-    if (isLoading.current === false) {
+
+    if (!hasLoaded) {
       getPosts();
-      isLoading.current = true;
     }
-  }, []);
+  }, [hasLoaded]);
 
   return (
     <div>
       <Typography variant="h2">Home</Typography>
 
-      {isLoading.current}
+      {isLoading && <Preloader />}
+
+      {posts.map((post, index) => (
+        <div key={index}>
+          <h3>{post.title}</h3>
+          <p>{post.description}</p>
+          <p>{post.content}</p>
+        </div>
+      ))}
     </div>
   );
 };
