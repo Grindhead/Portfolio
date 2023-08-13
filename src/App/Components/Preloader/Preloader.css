@@ -1,59 +1,47 @@
 .preloader-container {
-  width: 100%;
-  height: 100vh; /* Adjust as needed */
+  width: 100vw;
+  height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #f0f0f0; /* Add a background color for better visibility */
+  background-color: transparent;
+  margin: 0;
+  padding: 0;
+  opacity: 0; /* Initial opacity set to 0 */
+  animation: fadeIn 1.33s ease-in-out forwards; /* Speed up fade-in animation by 50% */
 }
 
 .preloader {
-  width: 30%;
-  padding-top: 30%; /* Maintain aspect ratio for a square */
-  background-color: #3498db;
-  border: none;
+  width: 30vw;
+  height: 30vh;
+  animation: spin 3s ease-in-out infinite; /* Speed up spin animation by 50% */
+  margin: auto;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
   border-radius: 50%;
-  position: relative;
-  overflow: hidden; /* Prevents flashing element from overflowing */
-}
-
-.preloader::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(255, 255, 255, 0); /* Transparent white */
-  opacity: 0;
-  animation: flash 1s ease-in-out infinite 0.5s;
+  transition: transform 0.25s ease-in-out; /* Speed up rotation change transition by 50% */
+  filter: drop-shadow(
+    0 0 15px rgba(192, 192, 192, 0.8)
+  ); /* Grey glow effect applied to the SVG */
 }
 
 @keyframes spin {
-  0% {
-    transform: rotate(0deg);
-  }
+  0%,
   100% {
-    transform: rotate(-360deg);
+    transform: rotate(0deg) scale(1); /* Initial and final states, no scaling */
+  }
+  5%,
+  95% {
+    transform: rotate(0deg) scale(1.2); /* Bounce effect with scaling */
+  }
+  50% {
+    transform: rotate(360deg) scale(0.8); /* Midway, after the bounce, scale down */
   }
 }
 
-@keyframes pulse {
-  0%,
-  100% {
-    transform: scale(1);
-  }
-  50% {
-    transform: scale(1.1);
-  }
-}
-
-@keyframes flash {
-  0%,
-  100% {
-    opacity: 0;
-  }
-  50% {
-    opacity: 1;
+@keyframes fadeIn {
+  to {
+    opacity: 1; /* Fade-in animation sets opacity to 1 */
   }
 }

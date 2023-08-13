@@ -30,15 +30,15 @@ const Home = () => {
     <div>
       <Typography variant="h2">Home</Typography>
 
-      {isLoading && <Preloader />}
+      <Preloader />
 
-      {posts.map((post, index) => (
+      {/* {posts.map((post, index) => (
         <div key={index}>
           <h3>{post.title}</h3>
           <p>{post.description}</p>
           <p>{post.content}</p>
         </div>
-      ))}
+      ))} */}
     </div>
   );
 };
