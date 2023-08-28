@@ -98,10 +98,13 @@ let AppTheme = createTheme({
         },
       },
     },
-    MuiFormLabel: {
+    MuiInputLabel: {
       styleOverrides: {
         root: {
+          borderRadius: "1em",
+          padding: "0 10px",
           color: "black",
+          background: "white",
           "&.Mui-focused": {
             color: "black",
           },

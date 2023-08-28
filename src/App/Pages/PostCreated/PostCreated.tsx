@@ -7,6 +7,7 @@ const PostCreated = () => {
     <div>
       <Typography variant="h1">Post Created</Typography>
       <Link to={Pages.VIEW_POST}>View Your Post</Link>
+      <br />
       <Link to={Pages.HOME}>Return to Homepage</Link>
     </div>
   );

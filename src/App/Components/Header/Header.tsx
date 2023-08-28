@@ -34,6 +34,8 @@ const useStyles = makeStyles((theme: typeof AppTheme) => ({
 }));
 
 export default function Header() {
+  console.log(Auth.currentUser, "logged in");
+
   const [searchTerm, setSearchTerm] = useState("");
 
   const navigate = useNavigate();

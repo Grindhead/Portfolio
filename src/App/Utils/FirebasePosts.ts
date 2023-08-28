@@ -80,5 +80,5 @@ export async function loadPosts(
     res.push(newPost);
   });
   console.log("returning response");
-  return res;
+  return Promise.resolve(res);
 }

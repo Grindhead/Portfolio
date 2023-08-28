@@ -7,7 +7,7 @@ interface PostProps {
 
 export const PartialPost = ({ post }: PostProps) => {
   return (
-    <Box>
+    <Box className="partialPost">
       <Typography variant="h2">{post.title}</Typography>
       <Typography variant="h2">{post.description}</Typography>
     </Box>

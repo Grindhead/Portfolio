@@ -1,8 +1,9 @@
-import React, { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef } from "react";
 import { Typography } from "@mui/material";
 import { loadPosts } from "../../Utils/FirebasePosts";
 import { PostType } from "../../Utils/Post";
 import { Preloader } from "../../Components/Preloader/Preloader";
+import { PartialPost } from "../../Components/PartialPost/PartialPost";
 
 const Home = () => {
   const pageSize = 10;
@@ -13,6 +14,7 @@ const Home = () => {
 
   useEffect(() => {
     const getPosts = async () => {
+      console.log("getting posts");
       setIsLoading(true);
       const loadedPosts = await loadPosts(pageNum.current, pageSize);
       pageNum.current += pageSize;
@@ -30,15 +32,11 @@ const Home = () => {
     <div>
       <Typography variant="h2">Home</Typography>
 
-      <Preloader />
+      {isLoading && <Preloader />}
 
-      {/* {posts.map((post, index) => (
-        <div key={index}>
-          <h3>{post.title}</h3>
-          <p>{post.description}</p>
-          <p>{post.content}</p>
-        </div>
-      ))} */}
+      {posts.map((post, index) => (
+        <PartialPost post={post} key={index}></PartialPost>
+      ))}
     </div>
   );
 };

@@ -3,7 +3,6 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import App from "./App/App";
 import { CssBaseline, ThemeProvider } from "@mui/material";
-import reportWebVitals from "./reportWebVitals";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import AppTheme from "./App/Themes/Theme";
 import { lazy } from "react";
@@ -65,12 +64,10 @@ const root = ReactDOM.createRoot(
 );
 
 root.render(
-  <React.StrictMode>
-    <ThemeProvider theme={AppTheme}>
-      <CssBaseline enableColorScheme />
-      <RouterProvider router={router} />
-    </ThemeProvider>
-  </React.StrictMode>
+  <ThemeProvider theme={AppTheme}>
+    <CssBaseline enableColorScheme />
+    <RouterProvider router={router} />
+  </ThemeProvider>
 );
 
 // If you want to start measuring performance in your app, pass a function
