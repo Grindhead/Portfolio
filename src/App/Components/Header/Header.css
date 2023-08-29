@@ -10,7 +10,7 @@ header {
   margin: 10px auto 0 auto;
   padding: 20px;
   animation: rubberBand;
-  animation-duration: 2s;
+  animation-duration: 1s;
   --animate-delay: 0.9s;
 }
 
