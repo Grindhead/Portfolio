@@ -62,7 +62,7 @@ export default function Header() {
     <>
       <header>
         <img src={Logo} alt="logo" className="logo" />
-
+        <canvas className="canvas"></canvas>
         <Toolbar className="navBar">
           <div className={classes.navlinks}>
             <NavLink to={Pages.HOME} className={classes.link}>
