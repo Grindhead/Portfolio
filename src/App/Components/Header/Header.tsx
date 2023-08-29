@@ -1,4 +1,5 @@
 import "./Header.css";
+import "animate.css";
 import { NavLink } from "react-router-dom";
 import { Toolbar, TextField, InputAdornment, IconButton } from "@mui/material";
 import { makeStyles } from "@mui/styles";
@@ -61,6 +62,7 @@ export default function Header() {
     <>
       <header>
         <img src={Logo} alt="logo" className="logo" />
+
         <Toolbar className="navBar">
           <div className={classes.navlinks}>
             <NavLink to={Pages.HOME} className={classes.link}>
