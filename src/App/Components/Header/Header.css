@@ -1,11 +1,17 @@
 header {
   text-align: center;
   flex: 20%;
+  background: black;
 }
 
 .logo {
-  margin: 0 auto;
+  margin: 10px auto 0 auto;
   padding: 20px;
+}
+
+.navBar {
+  border-width: 5px 0;
+  border-color: #47b1fb;
 }
 
 .navlinks {

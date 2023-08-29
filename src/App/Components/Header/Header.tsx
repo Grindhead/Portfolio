@@ -61,7 +61,7 @@ export default function Header() {
     <>
       <header>
         <img src={Logo} alt="logo" className="logo" />
-        <Toolbar>
+        <Toolbar className="navBar">
           <div className={classes.navlinks}>
             <NavLink to={Pages.HOME} className={classes.link}>
               Home

@@ -30,8 +30,6 @@ const Home = () => {
 
   return (
     <div>
-      <Typography variant="h2">Home</Typography>
-
       {isLoading && <Preloader />}
 
       {posts.map((post, index) => (

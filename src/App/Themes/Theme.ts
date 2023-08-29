@@ -21,8 +21,13 @@ let AppTheme = createTheme({
     MuiTypography: {
       styleOverrides: {
         h2: {
+          fontSize: "0.5rem",
           color: "white",
           margin: "1rem 0",
+          textTransform: "capitalize",
+        },
+        subtitle1: {
+          fontSize: "1em",
         },
       },
     },
@@ -57,7 +62,7 @@ let AppTheme = createTheme({
       styleOverrides: {
         root: {
           color: "white",
-          padding: "0.5rem",
+          padding: "0.5rem 0.5rem 0.5rem 0",
           "&:hover": {
             color: "black",
             fontWeight: "bold",
