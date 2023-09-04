@@ -4,6 +4,7 @@ import { loadPost } from "../../Utils/FirebasePosts";
 import { PostType } from "../../Utils/Post";
 import { Preloader } from "../../Components/Preloader/Preloader";
 import { useNavigate } from "react-router-dom";
+import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import { Typography, Link } from "@mui/material";
 
 const ViewPost = () => {
@@ -41,7 +42,10 @@ const ViewPost = () => {
 
   return (
     <div>
-      <Link onClick={() => navigate(-1)}>Back</Link>
+      <Link onClick={() => navigate(-1)}>
+        <ArrowBackIcon />
+        Back
+      </Link>
       <Typography variant="h1">{post.title}</Typography>
       <Typography
         variant="body1"

@@ -2,6 +2,7 @@ import "./PartialPost.css";
 import { Box, Link, Typography } from "@mui/material";
 import { PostType } from "../../Utils/Post";
 import { Pages } from "../../Utils/Pages";
+import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 
 interface PostProps {
   post: PostType;
@@ -16,7 +17,7 @@ export const PartialPost = ({ post }: PostProps) => {
       <Typography variant="subtitle1">{post.description}</Typography>
       <br />
       <Link href={Pages.VIEW_POST + post.id} underline="always">
-        View Post
+        View Post <ArrowForwardIcon />
       </Link>
     </Box>
   );
