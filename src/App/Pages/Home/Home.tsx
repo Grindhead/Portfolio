@@ -1,5 +1,4 @@
 import { useState, useEffect, useRef } from "react";
-import { Typography } from "@mui/material";
 import { loadPosts } from "../../Utils/FirebasePosts";
 import { PostType } from "../../Utils/Post";
 import { Preloader } from "../../Components/Preloader/Preloader";
@@ -14,7 +13,6 @@ const Home = () => {
 
   useEffect(() => {
     const getPosts = async () => {
-      console.log("getting posts");
       setIsLoading(true);
       const loadedPosts = await loadPosts(pageNum.current, pageSize);
       pageNum.current += pageSize;

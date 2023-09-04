@@ -1,11 +1,52 @@
-import { Typography } from "@mui/material";
-import { Link } from "react-router-dom";
-import { Pages } from "../../Utils/Pages";
+import { useParams } from "react-router-dom";
+import { useState, useEffect } from "react";
+import { loadPost } from "../../Utils/FirebasePosts";
+import { PostType } from "../../Utils/Post";
+import { Preloader } from "../../Components/Preloader/Preloader";
+import { useNavigate } from "react-router-dom";
+import { Typography, Link } from "@mui/material";
 
 const ViewPost = () => {
+  const { id } = useParams();
+
+  const [isLoading, setIsLoading] = useState<boolean>(false);
+  const [hasLoaded, setHasLoaded] = useState<boolean>(false);
+  const [post, setPost] = useState<PostType>();
+
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    const getPost = async () => {
+      setIsLoading(true);
+      const loadedPost = await loadPost(id);
+      setPost(loadedPost);
+      setIsLoading(false);
+      setHasLoaded(true);
+    };
+
+    if (!hasLoaded) {
+      getPost();
+    }
+  }, [hasLoaded, id]);
+
+  if (isLoading || !post) {
+    return (
+      <div>
+        <div>
+          <Preloader />
+        </div>
+      </div>
+    );
+  }
+
   return (
     <div>
-      <Typography variant="h1"></Typography>
+      <Link onClick={() => navigate(-1)}>Back</Link>
+      <Typography variant="h1">{post.title}</Typography>
+      <Typography
+        variant="body1"
+        dangerouslySetInnerHTML={{ __html: post.content }}
+      ></Typography>
     </div>
   );
 };

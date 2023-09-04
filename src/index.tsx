@@ -11,6 +11,9 @@ import LoggedOut from "./App/Pages/LoggedOut/LoggedOut";
 import { Pages } from "./App/Utils/Pages";
 import CreatePost from "./App/Pages/CreatePost/CreatePost";
 import PostCreated from "./App/Pages/PostCreated/PostCreated";
+import Search from "./App/Pages/Search/Search";
+import EditPost from "./App/Pages/Edit-Post/Edit-Post";
+import ViewPost from "./App/Pages/View-Post/View-Post";
 
 const Home = lazy(() => import("./App/Pages/Home/Home"));
 const About = lazy(() => import("./App/Pages/About/About"));
@@ -48,12 +51,20 @@ const router = createBrowserRouter([
         element: <CreatePost />,
       },
       {
-        path: Pages.POST_CREATED,
+        path: Pages.POST_CREATED + ":id",
         element: <PostCreated />,
       },
       {
+        path: Pages.VIEW_POST + ":id",
+        element: <ViewPost />,
+      },
+      {
+        path: Pages.EDIT_POST + ":id",
+        element: <EditPost />,
+      },
+      {
         path: Pages.SEARCH,
-        element: <PostCreated />,
+        element: <Search />,
       },
     ],
   },

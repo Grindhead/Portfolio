@@ -66,6 +66,7 @@ let AppTheme = createTheme({
           "&:hover": {
             color: "black",
             fontWeight: "bold",
+            cursor: "pointer",
           },
         },
       },

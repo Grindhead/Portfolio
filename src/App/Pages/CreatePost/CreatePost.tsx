@@ -8,9 +8,13 @@ const CreatePost = () => {
   const navigate = useNavigate();
   const pageName = "Submit Post";
 
-  const submitPost = (title: string, description: string, content: string) => {
-    addPost(title, description, content);
-    navigate(Pages.POST_CREATED);
+  const submitPost = async (
+    title: string,
+    description: string,
+    content: string
+  ) => {
+    const id = await addPost(title, description, content);
+    navigate(Pages.POST_CREATED + ":" + id);
   };
 
   return (

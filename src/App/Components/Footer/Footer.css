@@ -3,4 +3,5 @@ footer {
   flex: 10%;
   display: block;
   position: relative;
+  background-color: black;
 }

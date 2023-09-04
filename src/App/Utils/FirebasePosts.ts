@@ -2,6 +2,7 @@ import {
   doc,
   collection,
   addDoc,
+  getDoc,
   getDocs,
   query,
   where,
@@ -17,7 +18,7 @@ export const addPost = async (
   title: string,
   description: string,
   content: string
-): Promise<void> => {
+): Promise<string> => {
   const usersRef = collection(Db, "users");
   const querySnapshot = await getDocs(
     query(usersRef, where("uid", "==", Auth.currentUser?.uid))
@@ -31,7 +32,11 @@ export const addPost = async (
     description,
     content,
     authorId: userId,
+  }).then((docRef) => {
+    console.log("docRef.id", docRef.id);
+    return Promise.resolve(docRef.id);
   });
+  return Promise.resolve("error");
 };
 
 export const getPaginatedPosts = async (
@@ -39,16 +44,14 @@ export const getPaginatedPosts = async (
   startAfterDocId: number = 0
 ) => {
   const postRef = collection(Db, "posts");
-
-  // Create a reference to the document to start after
   const startAfterDoc = await doc(postRef, startAfterDocId.toString());
 
   const querySnapshot = await getDocs(
     query(
       postRef,
-      where("date", ">", startAfterDocId), // Use ">", not "date >"
+      where("date", ">", startAfterDocId),
       orderBy("date"),
-      startAfter(startAfterDoc), // Use the document reference
+      startAfter(startAfterDoc),
       limit(pageSize)
     )
   );
@@ -57,8 +60,20 @@ export const getPaginatedPosts = async (
   querySnapshot.forEach((doc) => {
     posts.push({ id: doc.id, ...doc.data() });
   });
-  console.log(querySnapshot);
-  return posts; // Output the fetched posts
+
+  return posts;
+};
+
+export const loadPost = async (id: string): Promise<PostType> => {
+  const docRef = doc(Db, "posts", id);
+  const docSnap = await getDoc(docRef);
+
+  if (docSnap.exists()) {
+    console.log("Document data:", docSnap.data());
+    return Promise.resolve(docSnap.data() as PostType);
+  } else {
+    console.log("No such document!");
+  }
 };
 
 export async function loadPosts(
@@ -71,14 +86,20 @@ export async function loadPosts(
     startAt(lastDoc),
     limit(pageSize)
   );
-  console.log("getting response");
+
   const querySnapshot = await getDocs(q);
   const res: PostType[] = [];
   querySnapshot.forEach((doc) => {
+    console.log(doc.id);
     const data = doc.data();
-    const newPost = new Post(data.title, data.description, data.content);
+    const newPost = new Post(
+      data.title,
+      data.description,
+      data.content,
+      doc.id
+    );
     res.push(newPost);
   });
-  console.log("returning response");
+
   return Promise.resolve(res);
 }
