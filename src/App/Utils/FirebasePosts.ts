@@ -77,7 +77,7 @@ export const loadPost = async (id: string): Promise<PostType> => {
 };
 
 export async function loadPosts(
-  lastDoc: string | null,
+  lastDoc: number | null,
   pageSize: number
 ): Promise<PostType[]> {
   const q = query(
@@ -90,7 +90,6 @@ export async function loadPosts(
   const querySnapshot = await getDocs(q);
   const res: PostType[] = [];
   querySnapshot.forEach((doc) => {
-    console.log(doc.id);
     const data = doc.data();
     const newPost = new Post(
       data.title,
