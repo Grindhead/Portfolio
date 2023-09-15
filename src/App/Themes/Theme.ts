@@ -21,7 +21,7 @@ let AppTheme = createTheme({
     MuiTypography: {
       styleOverrides: {
         h2: {
-          fontSize: "0.5rem",
+          fontSize: "14pt",
           color: "white",
           margin: "1rem 0",
           textTransform: "capitalize",
@@ -125,6 +125,7 @@ let AppTheme = createTheme({
       },
     },
   },
+  
 });
 
 AppTheme = responsiveFontSizes(AppTheme);
