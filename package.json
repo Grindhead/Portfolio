@@ -24,11 +24,11 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "react-scripts build",
+    "build": "react-scripts build && resizeImages",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "createPosts": "node scripts/createPosts.mjs",
-    "resizeImages": "node scripts/resizeImages.cjs"
+    "resizeImages": "node scripts/resizeImages.mjs"
   },
   "eslintConfig": {
     "extends": [

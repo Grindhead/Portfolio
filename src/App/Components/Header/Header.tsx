@@ -61,7 +61,15 @@ export default function Header() {
   return (
     <>
       <header>
-        <img src={Logo} alt="logo" className="logo" />
+        <img
+          srcSet="logo320.png 320w, logo.png 800w"
+          sizes="(max-width: 600px) 480px,
+            800px"
+          src="logo.png"
+          alt="logo"
+          className="logo"
+        />
+
         <canvas className="canvas"></canvas>
         <Toolbar className="navBar">
           <div className={classes.navlinks}>
