@@ -2,7 +2,6 @@
   "name": "portfolio",
   "version": "0.1.0",
   "private": true,
-  "type": "module",
   "dependencies": {
     "@emotion/react": "^11.11.1",
     "@emotion/styled": "^11.11.0",
@@ -14,6 +13,7 @@
     "@mui/styles": "^5.14.9",
     "animate.css": "^4.1.1",
     "firebase": "^9.22.2",
+    "imagemagick": "^0.1.3",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-quill": "^2.0.0",
@@ -27,7 +27,8 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "createPosts": "node createPosts.mjs"
+    "createPosts": "node scripts/createPosts.mjs",
+    "resizeImages": "node scripts/resizeImages.cjs"
   },
   "eslintConfig": {
     "extends": [

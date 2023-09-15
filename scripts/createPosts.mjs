@@ -1,7 +1,7 @@
 import admin from 'firebase-admin';
 import { readFileSync } from 'fs';
 import { deletePosts} from './deletePosts.mjs';
-import config from '../id.json' assert { type: 'json' };
+import config from '../../id.json' assert { type: 'json' };
 
 const serviceAccount = JSON.parse(readFileSync("../key.json", 'utf-8'));
 
