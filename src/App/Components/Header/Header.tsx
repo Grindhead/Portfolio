@@ -62,12 +62,11 @@ export default function Header() {
       <header>
         <img
           srcSet="logo-320w.png, logo-480w.jpg 1.5x, logo-640w.png 2x"
-          src="./logo.png"
+          src="./logo-640w.png"
           alt="logo"
           className="logo"
         />
 
-        <canvas className="canvas"></canvas>
         <Toolbar className="navBar">
           <div className={classes.navlinks}>
             <NavLink to={Pages.HOME} className={classes.link}>

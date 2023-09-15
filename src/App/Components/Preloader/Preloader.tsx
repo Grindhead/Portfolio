@@ -1,5 +1,5 @@
 import "./Preloader.css";
-import image from "../../../Assets/svg/gear.svg";
+import image from "../../../Assets/SVG/gear.svg";
 
 export const Preloader = () => {
   return (
