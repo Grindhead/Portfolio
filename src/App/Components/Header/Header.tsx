@@ -9,7 +9,6 @@ import { Pages } from "../../Utils/Pages";
 import { useState } from "react";
 import SearchIcon from "@mui/icons-material/Search";
 import AppTheme, { tertiary } from "../../Themes/Theme";
-import Logo from "../../../Assets/images/logo.png";
 
 const useStyles = makeStyles((theme: typeof AppTheme) => ({
   navlinks: {
@@ -62,10 +61,8 @@ export default function Header() {
     <>
       <header>
         <img
-          srcSet="logo320.png 320w, logo.png 800w"
-          sizes="(max-width: 600px) 480px,
-            800px"
-          src="logo.png"
+          srcSet="logo-320w.png, logo-480w.jpg 1.5x, logo-640w.png 2x"
+          src="./logo.png"
           alt="logo"
           className="logo"
         />
