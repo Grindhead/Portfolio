@@ -33,7 +33,6 @@ export const addPost = async (
     content,
     authorId: userId,
   }).then((docRef) => {
-    console.log("docRef.id", docRef.id);
     return Promise.resolve(docRef.id);
   });
   return Promise.resolve("error");
@@ -69,7 +68,6 @@ export const loadPost = async (id: string): Promise<PostType> => {
   const docSnap = await getDoc(docRef);
 
   if (docSnap.exists()) {
-    console.log("Document data:", docSnap.data());
     return Promise.resolve(docSnap.data() as PostType);
   } else {
     console.log("No such document!");
@@ -82,13 +80,14 @@ export async function loadPosts(
 ): Promise<PostType[]> {
   const q = query(
     collection(Db, "posts"),
-    orderBy("date"),
+    orderBy("id"),
     startAt(lastDoc),
     limit(pageSize)
   );
 
   const querySnapshot = await getDocs(q);
   const res: PostType[] = [];
+
   querySnapshot.forEach((doc) => {
     const data = doc.data();
     const newPost = new Post(
