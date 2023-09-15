@@ -4,14 +4,16 @@ import Stack from "@mui/material/Stack";
 
 type PaginationComponentProps = {
   handleChange: (page: number) => void;
+  count: number;
 };
 
 export const PaginationComponent: React.FC<PaginationComponentProps> = ({
   handleChange,
+  count
 }) => {
   return (
     <Stack spacing={2}>
-      <Pagination count={2} onChange={(e: React.ChangeEvent<unknown>, value: number) => handleChange(value)} />
+      <Pagination count={count} onChange={(e: React.ChangeEvent<unknown>, value: number) => handleChange(value)} />
     </Stack>
   );
 };
