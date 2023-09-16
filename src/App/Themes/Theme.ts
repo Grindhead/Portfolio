@@ -86,7 +86,6 @@ let AppTheme = createTheme({
       styleOverrides: {
         root: {
           backgroundColor: "#ffffff",
-          minHeight: "20vh",
         },
       },
     },
@@ -125,7 +124,6 @@ let AppTheme = createTheme({
       },
     },
   },
-  
 });
 
 AppTheme = responsiveFontSizes(AppTheme);
