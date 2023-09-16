@@ -66,7 +66,7 @@ export default function Header() {
           alt="logo"
           className="logo"
         />
-
+        <h1 id="title">GrindheadDDD</h1>
         <Toolbar className="navBar">
           <div className={classes.navlinks}>
             <NavLink to={Pages.HOME} className={classes.link}>

@@ -7,6 +7,17 @@ header {
   position: relative;
 }
 
+#title {
+  font-family: "reboard, Arial, Helvetica, sans-serif";
+  color: "#fb4848";
+  font-size: 24pt;
+  -webkit-text-stroke-width: 3px;
+  -webkit-text-stroke-color: #870000;
+  position: absolute;
+  z-index: 3;
+  margin: auto;
+}
+
 .logo {
   margin: 10px auto 0 auto;
   z-index: 1;
