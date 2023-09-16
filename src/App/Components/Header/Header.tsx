@@ -60,13 +60,7 @@ export default function Header() {
   return (
     <>
       <header>
-        <img
-          srcSet="logo-320w.png, logo-480w.jpg 1.5x, logo-640w.png 2x"
-          src="./logo-640w.png"
-          alt="logo"
-          className="logo"
-        />
-        <h1 id="title">GrindheadDDD</h1>
+        <h1 id="title">GRINDHEAD</h1>
         <Toolbar className="navBar">
           <div className={classes.navlinks}>
             <NavLink to={Pages.HOME} className={classes.link}>

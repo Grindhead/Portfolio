@@ -8,14 +8,15 @@ header {
 }
 
 #title {
-  font-family: "reboard, Arial, Helvetica, sans-serif";
-  color: "#fb4848";
-  font-size: 24pt;
+  font-family: "REBOARD";
+  color: #fb4848;
+  font-size: 56pt;
   -webkit-text-stroke-width: 3px;
   -webkit-text-stroke-color: #870000;
-  position: absolute;
+  position: relative;
   z-index: 3;
   margin: auto;
+  letter-spacing: 0.4rem;
 }
 
 .logo {

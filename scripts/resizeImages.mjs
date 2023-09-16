@@ -1,7 +1,7 @@
 import fs from "fs";
 import im from "imagemagick";
 const sourceDir = "./src/Assets/Images/";
-const paths = ["logo"];
+const paths = [""];
 const dest = "./public/";
 const resolutions = [320, 480, 640];
 const ext = ".png";
