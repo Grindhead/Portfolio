@@ -1,9 +1,9 @@
 import fs from "fs";
 import im from "imagemagick";
 const sourceDir = "./src/Assets/Images/";
-const paths = [""];
+const paths = ["header-background", "houses"];
 const dest = "./public/";
-const resolutions = [320, 480, 640];
+const resolutions = [1024];
 const ext = ".png";
 
 const resize = (path, size) => {

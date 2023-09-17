@@ -3,7 +3,10 @@ footer {
   flex: 10%;
   display: block;
   position: relative;
-  background-color: black;
+  background-color: #47b1fb;
   color: white;
   padding: 2%;
+  background-image: url("../../../../public/houses-1024w.png");
+  background-repeat: no-repeat;
+  background-size: 100% auto;
 }

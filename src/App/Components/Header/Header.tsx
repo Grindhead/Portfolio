@@ -9,6 +9,7 @@ import { Pages } from "../../Utils/Pages";
 import { useState } from "react";
 import SearchIcon from "@mui/icons-material/Search";
 import AppTheme, { tertiary } from "../../Themes/Theme";
+import Gear from "../../../Assets/Images/gear.png";
 
 const useStyles = makeStyles((theme: typeof AppTheme) => ({
   navlinks: {
@@ -60,7 +61,11 @@ export default function Header() {
   return (
     <>
       <header>
-        <h1 id="title">GRINDHEAD</h1>
+        <div className="background">
+          <img src={Gear} alt="background" className="gear-1" />
+          <img src={Gear} alt="background" className="gear-2" />
+          <h1 id="title">GRINDHEAD</h1>
+        </div>
         <Toolbar className="navBar">
           <div className={classes.navlinks}>
             <NavLink to={Pages.HOME} className={classes.link}>

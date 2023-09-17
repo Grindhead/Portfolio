@@ -1,6 +1,6 @@
 header {
   text-align: center;
-  background: black;
+  background: #47b1fb;
   z-index: 1;
   width: 100%;
   position: relative;
@@ -13,6 +13,7 @@ header {
   font-size: max(10vw, 24pt);
   -webkit-text-stroke-width: 0.4vw;
   -webkit-text-stroke-color: #870000;
+
   position: relative;
   z-index: 3;
   margin: auto;
@@ -20,17 +21,37 @@ header {
   animation: rubberBand;
   animation-duration: 1s;
   --animate-delay: 0.9s;
-  background-image: url(../../../../public/gear.png),
-    url(../../../../public/gear.png);
-  background-position: 20% 85%, 32% 20%;
-  background-repeat: no-repeat;
-  background-size: 14vw auto, 8vw auto;
 }
 
-.navBar {
-  border-width: 5px 0;
-  border-color: #47b1fb;
-  margin-top: 16px;
+.background {
+  width: 100%;
+  height: auto;
+  position: relative;
+  background-image: url("../../../../public/header-background-1024w.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center -100%;
+  background-attachment: relative;
+}
+
+.gear-1,
+.gear-2 {
+  position: absolute;
+  z-index: 2;
+}
+
+.gear-1 {
+  left: 18%;
+  top: 14%;
+  width: 12%;
+  animation: rotateCog 5s linear infinite;
+}
+
+.gear-2 {
+  left: 29%;
+  top: 14%;
+  width: 6%;
+  animation: rotateCogBackwards 3.5s linear infinite;
 }
 
 .navlinks {
@@ -46,5 +67,14 @@ header {
   }
   to {
     transform: rotate(360deg);
+  }
+}
+
+@keyframes rotateCogBackwards {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(-360deg);
   }
 }
