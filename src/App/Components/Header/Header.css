@@ -5,6 +5,7 @@ header {
   width: 100%;
   position: relative;
   min-width: 320px;
+  padding-bottom: 3vh;
 }
 
 #title {
@@ -53,9 +54,6 @@ header {
   width: 6%;
   animation: rotateCogBackwards 3.5s linear infinite;
 }
-
-/* .navBar {
-} */
 
 .navlinks {
   display: "flex";

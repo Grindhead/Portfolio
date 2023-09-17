@@ -120,6 +120,7 @@ export default function Header() {
             />
           </div>
         </Toolbar>
+        <div className="bars" />
       </header>
     </>
   );
