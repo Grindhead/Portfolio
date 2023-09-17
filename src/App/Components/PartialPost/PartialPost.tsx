@@ -1,5 +1,6 @@
 import "./PartialPost.css";
-import { Box, Link, Typography } from "@mui/material";
+import { Box, Typography } from "@mui/material";
+import { NavLink } from "react-router-dom";
 import { PostType } from "../../Utils/Post";
 import { Pages } from "../../Utils/Pages";
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
@@ -11,14 +12,14 @@ interface PostProps {
 export const PartialPost = ({ post }: PostProps) => {
   return (
     <Box className="partialPost">
-      <Link href={Pages.VIEW_POST + post.id}>
+      <NavLink to={Pages.VIEW_POST + post.id}>
         <Typography variant="h2">{post.title}</Typography>
-      </Link>
+      </NavLink>
       <Typography variant="subtitle1">{post.description}</Typography>
       <br />
-      <Link href={Pages.VIEW_POST + post.id} underline="always">
+      <NavLink to={Pages.VIEW_POST + post.id}>
         View Post <ArrowForwardIcon />
-      </Link>
+      </NavLink>
     </Box>
   );
 };

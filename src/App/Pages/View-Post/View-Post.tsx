@@ -43,7 +43,7 @@ const ViewPost = () => {
   return (
     <div>
       <Link onClick={() => navigate(-1)}>
-        <ArrowBackIcon />
+        <ArrowBackIcon className="backArrow" />
         Back
       </Link>
       <Typography variant="h1">{post.title}</Typography>

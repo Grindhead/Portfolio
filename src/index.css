@@ -38,3 +38,7 @@ code {
   background-repeat: repeat-x;
   margin: -0.5% 0;
 }
+
+.backArrow {
+  vertical-align: top;
+}

@@ -10,9 +10,11 @@ export default function Footer() {
         <div className="bars" />
         <div className="footer-content">
           <Typography variant="h4">Email: </Typography>
-          <Link to="mailto:craigbeswetherick@gmail.com">
-            craigbeswetherick@gmail.com
-          </Link>
+          <Typography variant="subtitle1">
+            <Link to="mailto:craigbeswetherick@gmail.com">
+              craigbeswetherick@gmail.com
+            </Link>
+          </Typography>
         </div>
       </Box>
     </footer>
