@@ -7,6 +7,7 @@ export default function Footer() {
     <footer>
       <Box>
         <div className="houses" />
+        <div className="bars" />
         <div className="footer-content">
           <Typography variant="h4">Email: </Typography>
           <Link to="mailto:craigbeswetherick@gmail.com">
