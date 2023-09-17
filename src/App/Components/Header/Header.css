@@ -29,9 +29,9 @@ header {
   position: relative;
   background-image: url("../../../../public/header-background-1024w.png");
   background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center -100%;
-  background-attachment: relative;
+  background-size: 100% auto;
+  background-position: center bottom; /* Anchors the background image to the bottom */
+  background-attachment: scroll;
 }
 
 .gear-1,
@@ -53,6 +53,9 @@ header {
   width: 6%;
   animation: rotateCogBackwards 3.5s linear infinite;
 }
+
+/* .navBar {
+} */
 
 .navlinks {
   display: "flex";
