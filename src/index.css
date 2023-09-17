@@ -42,3 +42,7 @@ code {
 .backArrow {
   vertical-align: top;
 }
+
+a:link {
+  color: white;
+}
