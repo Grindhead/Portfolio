@@ -31,6 +31,7 @@ let AppTheme = createTheme({
             textDecoration: "none",
             "&:hover": {
               color: "black",
+              textDecoration: "underline",
             },
           },
         },
@@ -42,6 +43,7 @@ let AppTheme = createTheme({
             textDecoration: "none",
             "&:hover": {
               color: "black",
+              textDecoration: "underline",
             },
           },
         },
@@ -51,6 +53,9 @@ let AppTheme = createTheme({
       styleOverrides: {
         root: {
           color: "white",
+          "&:hover": {
+            textDecoration: "underline",
+          },
         },
       },
     },
