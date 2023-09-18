@@ -1,6 +1,8 @@
 import "./Footer.css";
 import { Link } from "react-router-dom";
 import { Typography, Box } from "@mui/material";
+import EmailIcon from "@mui/icons-material/Email";
+import FacebookIcon from "@mui/icons-material/Facebook";
 
 export default function Footer() {
   return (
@@ -9,10 +11,21 @@ export default function Footer() {
         <div className="houses" />
         <div className="bars" />
         <div className="footer-content">
-          <Typography variant="h4">Email: </Typography>
           <Typography variant="subtitle1">
             <Link to="mailto:craigbeswetherick@gmail.com">
+              <EmailIcon className="icon" />
               craigbeswetherick@gmail.com
+            </Link>
+          </Typography>
+          <Typography variant="subtitle1">
+            <Link to="https://www.facebook.com/gaming/GrindheadGames">
+              <FacebookIcon className="icon" />
+              facebook.com/gaming/GrindheadGames
+            </Link>
+          </Typography>
+          <Typography variant="subtitle1">
+            <Link to="https://twitter.com/GrindheadGames">
+              X @GrindheadGames
             </Link>
           </Typography>
         </div>

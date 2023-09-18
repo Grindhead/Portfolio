@@ -23,3 +23,7 @@ footer {
   padding: 5vh;
   background-color: #585a5c;
 }
+
+.icon {
+  vertical-align: middle;
+}
