@@ -38,6 +38,7 @@ let AppTheme = createTheme({
         subtitle1: {
           fontSize: "1em",
           color: "white",
+          marginLeft: "0.5vw",
           a: {
             color: "white",
             textDecoration: "none",
@@ -56,6 +57,7 @@ let AppTheme = createTheme({
           "&:hover": {
             textDecoration: "underline",
             color: "black",
+            fontWeight: "bold",
           },
         },
       },
@@ -101,7 +103,11 @@ let AppTheme = createTheme({
       },
     },
     MuiFormControl: {
-      styleOverrides: {},
+      styleOverrides: {
+        root: {
+          width: "30% !important",
+        },
+      },
     },
     MuiTextField: {
       styleOverrides: {

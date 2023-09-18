@@ -14,7 +14,6 @@ import Gear from "../../../Assets/Images/gear.png";
 const useStyles = makeStyles((theme: typeof AppTheme) => ({
   navlinks: {
     display: "flex",
-    justifyContent: "center",
     width: "100%",
     alignItems: "center",
   },
@@ -35,10 +34,7 @@ const useStyles = makeStyles((theme: typeof AppTheme) => ({
 }));
 
 export default function Header() {
-  console.log(Auth.currentUser, "logged in");
-
   const [searchTerm, setSearchTerm] = useState("");
-
   const navigate = useNavigate();
   const classes = useStyles();
 
@@ -96,29 +92,29 @@ export default function Header() {
                 Sign In
               </NavLink>
             )}
-            <TextField
-              type="search"
-              id="search"
-              label="Search"
-              variant="outlined"
-              className="search"
-              value={searchTerm}
-              onChange={(e) => setSearchTerm(e.target.value)}
-              InputProps={{
-                endAdornment: (
-                  <InputAdornment position="end">
-                    <IconButton
-                      aria-label="search"
-                      onClick={handleClickSearch}
-                      onMouseDown={handleMouseDownSearch}
-                    >
-                      <SearchIcon />
-                    </IconButton>
-                  </InputAdornment>
-                ),
-              }}
-            />
           </div>
+          <TextField
+            type="search"
+            id="search"
+            label="Search"
+            variant="outlined"
+            className="search"
+            value={searchTerm}
+            onChange={(e) => setSearchTerm(e.target.value)}
+            InputProps={{
+              endAdornment: (
+                <InputAdornment position="end">
+                  <IconButton
+                    aria-label="search"
+                    onClick={handleClickSearch}
+                    onMouseDown={handleMouseDownSearch}
+                  >
+                    <SearchIcon />
+                  </IconButton>
+                </InputAdornment>
+              ),
+            }}
+          />
         </Toolbar>
         <div className="bars" />
       </header>
