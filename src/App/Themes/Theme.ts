@@ -23,7 +23,7 @@ let AppTheme = createTheme({
         h2: {
           fontSize: "14pt",
           color: "white",
-          margin: "1rem 0",
+          margin: "1rem 0 0 0",
           textTransform: "capitalize",
 
           a: {
@@ -105,7 +105,7 @@ let AppTheme = createTheme({
     MuiFormControl: {
       styleOverrides: {
         root: {
-          width: "30% !important",
+          width: "100%",
         },
       },
     },
