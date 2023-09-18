@@ -20,13 +20,11 @@ export default function Footer() {
           <Typography variant="subtitle1">
             <Link to="https://www.facebook.com/gaming/GrindheadGames">
               <FacebookIcon className="icon" />
-              facebook.com/gaming/GrindheadGames
+              facebook
             </Link>
           </Typography>
           <Typography variant="subtitle1">
-            <Link to="https://twitter.com/GrindheadGames">
-              X @GrindheadGames
-            </Link>
+            <Link to="https://twitter.com/GrindheadGames">X</Link>
           </Typography>
         </div>
       </Box>
