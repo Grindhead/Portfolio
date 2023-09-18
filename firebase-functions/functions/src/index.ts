@@ -3,6 +3,17 @@ import * as admin from "firebase-admin";
 
 admin.initializeApp();
 
+exports.parseTags = functions.firestore
+  .document("posts/{postId}")
+  .onCreate(async (snapshot, context) => {
+    const postData = snapshot.data();
+    const splitTags = postData.tags.split(",");
+    postData.tags = splitTags;
+    const postDocRef = snapshot.ref;
+    await postDocRef.update({ tags: splitTags });
+    return Promise.resolve("success");
+  });
+
 exports.addPostToAuthor = functions.firestore
   .document("posts/{postId}")
   .onCreate(async (snapshot, context) => {
@@ -15,14 +26,11 @@ exports.addPostToAuthor = functions.firestore
 
     const ref = admin.firestore().collection("posts");
     const postCount = await ref.count().get();
-
-    const currentDate = new Date().toLocaleDateString();
-    const currentTime = new Date().toLocaleTimeString();
     const postDocRef = snapshot.ref;
     await postDocRef.update({
       publish: false,
-      date: currentDate,
-      time: currentTime,
+      date: new Date().toLocaleDateString(),
+      time: new Date().toLocaleTimeString(),
       authorId,
       id: postCount,
     });
