@@ -9,8 +9,7 @@ exports.addPostToAuthor = functions.firestore
     const postData = snapshot.data();
     const authorId = postData.authorId;
     const authorRef = admin.firestore().doc(`users/${authorId}`);
-    const authorSnap = await authorRef.get();
-    const authorData = authorSnap.data();
+    const authorData = await getRefData(authorId);
     const updatedPosts = authorData?.posts || [];
     updatedPosts.push(context.params.postId);
 
@@ -28,5 +27,22 @@ exports.addPostToAuthor = functions.firestore
       id: postCount,
     });
 
-    return await authorRef.set({posts: updatedPosts}, {merge: true});
+    return await authorRef.set({ posts: updatedPosts }, { merge: true });
   });
+
+/* 
+
+  Gets the data from a document reference
+
+  @param ref: admin.firestore.DocumentReference<admin.firestore.DocumentData> - The document reference to get data from
+  @returns admin.firestore.DocumentData | undefined
+  @example
+    const authorRef = admin.firestore().doc(`users/${authorId}`);
+    const authorData = await getRefData(authorId);
+*/
+const getRefData = async (
+  ref: admin.firestore.DocumentReference<admin.firestore.DocumentData>
+): Promise<admin.firestore.DocumentData | undefined> => {
+  const authorSnap = await ref.get();
+  return authorSnap.data();
+};
