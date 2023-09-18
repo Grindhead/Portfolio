@@ -32,7 +32,7 @@ export const Editor = ({ callback, buttonLabel }: EditorProps) => {
       />
       <Typography variant="h1">Description</Typography>
       <ReactQuill
-        value={content}
+        value={description}
         onChange={setDescription}
         placeholder="Enter your description here"
         modules={{
