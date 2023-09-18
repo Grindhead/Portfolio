@@ -9,7 +9,6 @@ import { Db } from "../../Utils/Firebase";
 
 const Home = () => {
   const pageSize = 3;
-  const [isLoading, setIsLoading] = useState<boolean>(false);
   const [posts, setPosts] = useState<PostType[]>([]);
   const count = useRef(0);
 
@@ -18,13 +17,10 @@ const Home = () => {
       const collectionRef = collection(Db, "posts");
       const countSnap = await getCountFromServer(collectionRef);
       count.current = countSnap.data().count;
-      setIsLoading(true);
       const loadedPosts = await loadPosts(page, pageSize);
       setPosts(loadedPosts);
-      setIsLoading(false);
     } catch (error) {
       console.error("Error loading posts:", error);
-      setIsLoading(false);
     }
   }, []);
 

@@ -2,7 +2,7 @@ import "react-quill/dist/quill.snow.css";
 import "./Editor.css";
 import ReactQuill from "react-quill";
 import { useState } from "react";
-import { Button, Container, TextField } from "@mui/material";
+import { Button, Container, TextField, Typography } from "@mui/material";
 
 interface EditorProps {
   callback: (title: string, description: string, content: string) => void;
@@ -29,21 +29,38 @@ export const Editor = ({ callback, buttonLabel }: EditorProps) => {
         value={title}
         onChange={(e) => setTitle(e.target.value)}
       />
-
-      <TextField
-        id="description"
-        label="Post Description"
-        variant="outlined"
-        required
-        fullWidth
-        value={description}
-        onChange={(e) => setDescription(e.target.value)}
+      <Typography variant="h1">Description</Typography>
+      <ReactQuill
+        value={content}
+        onChange={setDescription}
+        placeholder="Enter your description here"
+        modules={{
+          toolbar: [
+            [{ header: [1, 2, false] }],
+            ["bold", "italic", "underline", "strike", "blockquote"],
+            [{ list: "ordered" }, { list: "bullet" }],
+            ["link", "image"],
+            ["clean"],
+          ],
+        }}
+        formats={[
+          "header",
+          "bold",
+          "italic",
+          "underline",
+          "strike",
+          "blockquote",
+          "list",
+          "bullet",
+          "link",
+          "image",
+        ]}
       />
-
+      <Typography variant="h1">Content</Typography>
       <ReactQuill
         value={content}
         onChange={setContent}
-        placeholder="Enter your post here"
+        placeholder="Enter your content here"
         modules={{
           toolbar: [
             [{ header: [1, 2, false] }],
