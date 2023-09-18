@@ -3,6 +3,9 @@ import * as admin from "firebase-admin";
 
 admin.initializeApp();
 
+/* 
+  Parses the tags from a post and adds them to the post document using commas as a delimiter
+*/
 exports.parseTags = functions.firestore
   .document("posts/{postId}")
   .onCreate(async (snapshot, context) => {
@@ -14,6 +17,9 @@ exports.parseTags = functions.firestore
     return Promise.resolve("success");
   });
 
+/*
+  Adds the post to the author's posts array
+*/
 exports.addPostToAuthor = functions.firestore
   .document("posts/{postId}")
   .onCreate(async (snapshot, context) => {
