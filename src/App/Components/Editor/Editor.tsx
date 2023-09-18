@@ -10,9 +10,10 @@ interface EditorProps {
 }
 
 export const Editor = ({ callback, buttonLabel }: EditorProps) => {
-  const [title, setTitle] = useState("");
-  const [description, setDescription] = useState("");
-  const [content, setContent] = useState("");
+  const [title, setTitle] = useState<string>("");
+  const [tags, setTags] = useState<string>("");
+  const [description, setDescription] = useState<string>("");
+  const [content, setContent] = useState<string>("");
 
   const handleSubmit = () => {
     callback(title, description, content);
@@ -85,6 +86,19 @@ export const Editor = ({ callback, buttonLabel }: EditorProps) => {
         ]}
       />
       <br />
+      <Typography variant="h1">Tags</Typography>
+      <Typography variant="subtitle1">
+        Seperate using a comma eg: code, typescript
+      </Typography>
+      <TextField
+        id="tags"
+        label="Post Tags"
+        variant="outlined"
+        fullWidth
+        required
+        value={tags}
+        onChange={(e) => setTags(e.target.value)}
+      />
       <Button onClick={handleSubmit}>{buttonLabel}</Button>
     </Container>
   );
