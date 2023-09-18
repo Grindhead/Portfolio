@@ -20,6 +20,12 @@ let AppTheme = createTheme({
   components: {
     MuiTypography: {
       styleOverrides: {
+        h1: {
+          color: "white",
+        },
+        body1: {
+          color: "white",
+        },
         h2: {
           fontSize: "14pt",
           color: "white",
