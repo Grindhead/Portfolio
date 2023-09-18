@@ -25,9 +25,32 @@ let AppTheme = createTheme({
           color: "white",
           margin: "1rem 0",
           textTransform: "capitalize",
+
+          a: {
+            color: "white",
+            textDecoration: "none",
+            "&:hover": {
+              color: "black",
+            },
+          },
         },
         subtitle1: {
           fontSize: "1em",
+          color: "white",
+          a: {
+            color: "white",
+            textDecoration: "none",
+            "&:hover": {
+              color: "black",
+            },
+          },
+        },
+      },
+    },
+    MuiPaginationItem: {
+      styleOverrides: {
+        root: {
+          color: "white",
         },
       },
     },
