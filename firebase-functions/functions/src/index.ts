@@ -10,8 +10,8 @@ exports.addPostToAuthor = functions.firestore
     const authorId = postData.authorId;
     const authorRef = admin.firestore().doc(`users/${authorId}`);
     const authorData = await getRefData(authorId);
-    const updatedPosts = authorData?.posts || [];
-    updatedPosts.push(context.params.postId);
+    const createdPosts = authorData?.posts || [];
+    createdPosts.push(context.params.postId);
 
     const ref = admin.firestore().collection("posts");
     const postCount = await ref.count().get();
@@ -27,7 +27,7 @@ exports.addPostToAuthor = functions.firestore
       id: postCount,
     });
 
-    return await authorRef.set({ posts: updatedPosts }, { merge: true });
+    return await authorRef.set({ posts: createdPosts }, { merge: true });
   });
 
 /* 
