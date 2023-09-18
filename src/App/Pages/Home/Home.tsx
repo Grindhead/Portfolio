@@ -34,9 +34,7 @@ const Home = () => {
 
   return (
     <div>
-      <Preloader />
-
-      {/* {posts.length <= 0 && <Preloader />}
+      {posts.length <= 0 && <Preloader />}
       {posts.map((post, index) => (
         <PartialPost post={post} key={index}></PartialPost>
       ))}
@@ -47,7 +45,7 @@ const Home = () => {
             load((newPage - 1) * pageSize);
           }}
         />
-      )} */}
+      )}
     </div>
   );
 };
