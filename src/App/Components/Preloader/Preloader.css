@@ -1,47 +1,31 @@
-.preloader-container {
-  width: 100vw;
-  height: 100vh;
+.preloaderContainer {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: transparent;
-  margin: 0;
-  padding: 0;
-  opacity: 0; /* Initial opacity set to 0 */
-  animation: fadeIn 1.33s ease-in-out forwards; /* Speed up fade-in animation by 50% */
+  text-align: center;
+  width: 100vw;
+  height: auto;
+  opacity: 0;
+  animation: fadeIn 0.5s ease-in-out forwards;
 }
 
 .preloader {
   width: 10vw;
   height: auto;
-  animation: spin 3s ease-in-out infinite; /* Speed up spin animation by 50% */
-  margin: auto;
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center;
-  border-radius: 50%;
-  transition: transform 0.25s ease-in-out; /* Speed up rotation change transition by 50% */
-  filter: drop-shadow(
-    0 0 15px rgba(192, 192, 192, 0.8)
-  ); /* Grey glow effect applied to the SVG */
+  animation: spin 3s linear infinite;
 }
 
 @keyframes spin {
-  0%,
-  100% {
-    transform: rotate(0deg) scale(1); /* Initial and final states, no scaling */
+  from {
+    transform: rotate(0deg);
   }
-  5%,
-  95% {
-    transform: rotate(0deg) scale(1.2); /* Bounce effect with scaling */
-  }
-  50% {
-    transform: rotate(360deg) scale(0.8); /* Midway, after the bounce, scale down */
+  to {
+    transform: rotate(-360deg);
   }
 }
 
 @keyframes fadeIn {
   to {
-    opacity: 1; /* Fade-in animation sets opacity to 1 */
+    opacity: 1;
   }
 }
