@@ -20,6 +20,7 @@ export const Editor = ({ callback, buttonLabel }: EditorProps) => {
 
   return (
     <Container>
+      <Typography variant="h1">Title</Typography>
       <TextField
         id="title"
         label="Post Title"

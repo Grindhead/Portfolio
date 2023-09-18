@@ -1,4 +1,3 @@
-import { Typography } from "@mui/material";
 import { addPost } from "../../Utils/FirebasePosts";
 import { useNavigate } from "react-router-dom";
 import { Pages } from "../../Utils/Pages";
@@ -19,7 +18,6 @@ const CreatePost = () => {
 
   return (
     <div>
-      <Typography variant="h2">{pageName}</Typography>
       <Editor callback={submitPost} buttonLabel={pageName} />
     </div>
   );
