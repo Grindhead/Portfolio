@@ -1,10 +1,10 @@
 import "./Preloader.css";
-import image from "../../../Assets/SVG/gear.svg";
+import gear from "../../../Assets/Images/gear.png";
 
 export const Preloader = () => {
   return (
     <div className="preloaderContainer">
-      <img src={image} alt="preloader" className="preloader" />
+      <img src={gear} alt="preloader" className="preloader" />
     </div>
   );
 };

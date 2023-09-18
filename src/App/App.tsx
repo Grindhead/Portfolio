@@ -8,13 +8,14 @@ import Header from "./Components/Header/Header";
 import Footer from "./Components/Footer/Footer";
 import { Outlet } from "react-router-dom";
 import { Suspense } from "react";
+import { Preloader } from "./Components/Preloader/Preloader";
 
 function App() {
   return (
     <Container id="main" maxWidth={false} disableGutters={true}>
       <Header />
       <Container id="content" maxWidth={false}>
-        <Suspense fallback={<div>Loading...</div>}>
+        <Suspense fallback={<Preloader />}>
           <Outlet />
         </Suspense>
       </Container>

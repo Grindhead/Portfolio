@@ -15,7 +15,7 @@ const Home = () => {
 
   const load = useCallback(async (page) => {
     try {
-      const collectionRef = collection(Db, 'posts');
+      const collectionRef = collection(Db, "posts");
       const countSnap = await getCountFromServer(collectionRef);
       count.current = countSnap.data().count;
       setIsLoading(true);
@@ -34,15 +34,15 @@ const Home = () => {
 
   return (
     <div>
-      {isLoading && <Preloader />}
+      {posts.length <= 0 && <Preloader />}
       {posts.map((post, index) => (
         <PartialPost post={post} key={index}></PartialPost>
       ))}
-      {posts && (
+      {posts.length > 0 && (
         <PaginationComponent
           count={count.current / pageSize}
           handleChange={(newPage: number) => {
-            load((newPage-1) * pageSize);
+            load((newPage - 1) * pageSize);
           }}
         />
       )}
