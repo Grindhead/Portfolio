@@ -29,7 +29,7 @@ const useStyles = makeStyles((theme: typeof AppTheme) => ({
     },
     "&:hover": {
       fontWeight: "bold",
-      color: tertiary,
+      color: "black",
     },
   },
 }));

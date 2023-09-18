@@ -55,6 +55,7 @@ let AppTheme = createTheme({
           color: "white",
           "&:hover": {
             textDecoration: "underline",
+            color: "black",
           },
         },
       },
