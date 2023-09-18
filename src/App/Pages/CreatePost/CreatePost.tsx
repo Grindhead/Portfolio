@@ -10,9 +10,10 @@ const CreatePost = () => {
   const submitPost = async (
     title: string,
     description: string,
-    content: string
+    content: string,
+    tags: string
   ) => {
-    const id = await addPost(title, description, content);
+    const id = await addPost(title, description, content, tags);
     navigate(Pages.POST_CREATED + ":" + id);
   };
 

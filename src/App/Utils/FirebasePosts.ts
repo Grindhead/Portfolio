@@ -17,7 +17,8 @@ import Post, { PostType } from "./Post";
 export const addPost = async (
   title: string,
   description: string,
-  content: string
+  content: string,
+  tags: string
 ): Promise<string> => {
   const usersRef = collection(Db, "users");
   const querySnapshot = await getDocs(
@@ -32,6 +33,7 @@ export const addPost = async (
     description,
     content,
     authorId: userId,
+    tags,
   }).then((docRef) => {
     return Promise.resolve(docRef.id);
   });

@@ -5,7 +5,12 @@ import { useState } from "react";
 import { Button, Container, TextField, Typography } from "@mui/material";
 
 interface EditorProps {
-  callback: (title: string, description: string, content: string) => void;
+  callback: (
+    title: string,
+    description: string,
+    content: string,
+    tags: string
+  ) => void;
   buttonLabel: string;
 }
 
@@ -16,7 +21,7 @@ export const Editor = ({ callback, buttonLabel }: EditorProps) => {
   const [content, setContent] = useState<string>("");
 
   const handleSubmit = () => {
-    callback(title, description, content);
+    callback(title, description, content, tags);
   };
 
   return (
