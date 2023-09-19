@@ -1,8 +1,8 @@
-import { db } from "./createPosts.mjs";
+import { db } from "./utils.mjs";
 
 export async function deleteCollection(collectionPath, batchSize) {
   const collectionRef = db.collection(collectionPath);
-  const query = collectionRef.orderBy('__name__').limit(batchSize);
+  const query = collectionRef.orderBy("__name__").limit(batchSize);
 
   return new Promise((resolve, reject) => {
     deleteQueryBatch(query, batchSize, resolve, reject);
@@ -40,6 +40,3 @@ function deleteQueryBatch(query, batchSize, resolve, reject) {
     })
     .catch(reject);
 }
-
-
-

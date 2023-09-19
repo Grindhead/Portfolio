@@ -3,23 +3,12 @@ import * as admin from "firebase-admin";
 
 admin.initializeApp();
 
-/* 
-  Parses the tags from a post and adds them to the post document using commas as a delimiter
-*/
-exports.parseTags = functions.firestore
-  .document("posts/{postId}")
-  .onCreate(async (snapshot) => {
-    const postData = snapshot.data();
-    const splitTags = postData.tags.split(",");
-    const postDocRef = snapshot.ref;
-    await postDocRef.update({ tagList: splitTags });
-    return Promise.resolve("success");
-  });
-
 /*
-  Adds the post to the author's posts array
+  Adds the post to the author's posts array and splits the tags into an array
+
+  @name handlePostAdded
 */
-exports.addPostToAuthor = functions.firestore
+exports.handlePostAdded = functions.firestore
   .document("posts/{postId}")
   .onCreate(async (snapshot, context) => {
     const postData = snapshot.data();
@@ -38,6 +27,7 @@ exports.addPostToAuthor = functions.firestore
       time: new Date().toLocaleTimeString(),
       authorId,
       id: postCount,
+      tagList: postData.tags.split(","),
     });
 
     return await authorRef.set({ posts: createdPosts }, { merge: true });
@@ -47,6 +37,7 @@ exports.addPostToAuthor = functions.firestore
 
   Gets the data from a document reference
 
+  @name getRefData
   @param ref: admin.firestore.DocumentReference<admin.firestore.DocumentData> - The document reference to get data from
   @returns admin.firestore.DocumentData | undefined
   @example

@@ -1,5 +1,6 @@
 import fs from "fs";
 import im from "imagemagick";
+
 const sourceDir = "./src/Assets/Images/";
 const paths = ["header-background", "houses"];
 const dest = "./public/";
