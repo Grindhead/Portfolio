@@ -27,7 +27,7 @@ export const addPosts = async () => {
         content: "content " + i.toString(),
         authorId: adminId,
         id: postCount.data().count,
-        tags: ["tag1", "tag2", "tag3"],
+        tags: ["tag1, tag2, tag3"],
       });
     }
     console.log("Created Documents");

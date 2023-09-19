@@ -31,7 +31,8 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "createPosts": "node scripts/createPosts.mjs",
-    "resizeImages": "node scripts/resizeImages.mjs && pngquant --quality 99 --ext .png --force public/*.png"
+    "resizeImages": "node scripts/resizeImages.mjs && pngquant --quality 99 --ext .png --force public/*.png",
+    "deployFunctions": "firebase deploy --only functions"
   },
   "eslintConfig": {
     "extends": [
