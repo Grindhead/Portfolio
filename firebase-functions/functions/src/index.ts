@@ -13,7 +13,7 @@ exports.parseTags = functions.firestore
     const splitTags = postData.tags.split(",");
     postData.tags = splitTags;
     const postDocRef = snapshot.ref;
-    await postDocRef.update({ tags: splitTags });
+    await postDocRef.update({ tagList: splitTags });
     return Promise.resolve("success");
   });
 

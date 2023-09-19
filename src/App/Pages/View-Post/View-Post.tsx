@@ -51,6 +51,12 @@ const ViewPost = () => {
         variant="body1"
         dangerouslySetInnerHTML={{ __html: post.content }}
       ></Typography>
+      <Typography variant="h2">Tags</Typography>
+      {post.tagList.map((tag) => (
+        <Typography variant="body1" key={tag}>
+          {tag}
+        </Typography>
+      ))}
     </div>
   );
 };

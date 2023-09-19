@@ -96,7 +96,9 @@ export async function loadPosts(
       data.title,
       data.description,
       data.content,
-      doc.id
+      doc.id,
+      data.tags,
+      data.tagList
     );
     res.push(newPost);
   });

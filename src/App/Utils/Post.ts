@@ -3,6 +3,8 @@ export type PostType = {
   description: string;
   content: string;
   id: string;
+  tags: string;
+  tagList: string[];
 };
 
 class Post implements PostType {
@@ -10,12 +12,23 @@ class Post implements PostType {
   description: string;
   content: string;
   id: string;
+  tags: string;
+  tagList: string[];
 
-  constructor(title: string, description: string, content: string, id: string) {
+  constructor(
+    title: string,
+    description: string,
+    content: string,
+    id: string,
+    tags: string,
+    tagList: string[]
+  ) {
     this.title = title;
     this.description = description;
     this.content = content;
     this.id = id;
+    this.tags = tags;
+    this.tagList = tagList;
   }
 }
 
