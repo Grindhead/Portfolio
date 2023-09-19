@@ -1,5 +1,5 @@
-import "./Preloader.css";
 import gear from "../../../Assets/Images/gear.png";
+import "./Preloader.css";
 
 export const Preloader = () => {
   return (
