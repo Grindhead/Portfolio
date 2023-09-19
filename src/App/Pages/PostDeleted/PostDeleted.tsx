@@ -6,7 +6,9 @@ const PostDeleted = () => {
   return (
     <div>
       <Typography variant="h1">Your Post Has Been Deleted</Typography>
-      <Link to={Pages.HOME}>Return to Homepage</Link>
+      <Typography variant="subtitle1">
+        <Link to={Pages.HOME}>Return to Homepage</Link>
+      </Typography>
     </div>
   );
 };
