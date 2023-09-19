@@ -8,7 +8,7 @@ admin.initializeApp();
 */
 exports.parseTags = functions.firestore
   .document("posts/{postId}")
-  .onCreate(async (snapshot, context) => {
+  .onCreate(async (snapshot) => {
     const postData = snapshot.data();
     const splitTags = postData.tags.split(",");
     postData.tags = splitTags;
