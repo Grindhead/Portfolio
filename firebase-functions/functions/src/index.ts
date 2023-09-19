@@ -11,7 +11,6 @@ exports.parseTags = functions.firestore
   .onCreate(async (snapshot) => {
     const postData = snapshot.data();
     const splitTags = postData.tags.split(",");
-    postData.tags = splitTags;
     const postDocRef = snapshot.ref;
     await postDocRef.update({ tagList: splitTags });
     return Promise.resolve("success");
