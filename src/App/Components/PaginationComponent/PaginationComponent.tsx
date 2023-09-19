@@ -9,11 +9,16 @@ type PaginationComponentProps = {
 
 export const PaginationComponent: React.FC<PaginationComponentProps> = ({
   handleChange,
-  count
+  count,
 }) => {
   return (
     <Stack spacing={2}>
-      <Pagination count={count} onChange={(e: React.ChangeEvent<unknown>, value: number) => handleChange(value)} />
+      <Pagination
+        count={Math.floor(count)}
+        onChange={(e: React.ChangeEvent<unknown>, value: number) =>
+          handleChange(value)
+        }
+      />
     </Stack>
   );
 };

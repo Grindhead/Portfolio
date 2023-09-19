@@ -25,6 +25,15 @@ let AppTheme = createTheme({
         },
         body1: {
           color: "white",
+
+          a: {
+            color: "white",
+            textDecoration: "none",
+            "&:hover": {
+              color: "black",
+              textDecoration: "underline",
+            },
+          },
         },
         h2: {
           fontSize: "14pt",
@@ -41,6 +50,7 @@ let AppTheme = createTheme({
             },
           },
         },
+
         subtitle1: {
           fontSize: "1em",
           color: "white",
