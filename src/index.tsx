@@ -63,7 +63,7 @@ const router = createBrowserRouter([
         element: <EditPost />,
       },
       {
-        path: Pages.SEARCH,
+        path: Pages.SEARCH + ":searchTerm",
         element: <Search />,
       },
     ],

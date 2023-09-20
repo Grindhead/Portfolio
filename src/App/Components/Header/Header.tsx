@@ -8,7 +8,7 @@ import { useNavigate } from "react-router-dom";
 import { Pages } from "../../Utils/Pages";
 import { useState } from "react";
 import SearchIcon from "@mui/icons-material/Search";
-import AppTheme, { tertiary } from "../../Themes/Theme";
+import AppTheme from "../../Themes/Theme";
 import Gear from "../../../Assets/Images/gear.png";
 
 const useStyles = makeStyles((theme: typeof AppTheme) => ({
@@ -46,7 +46,7 @@ export default function Header() {
 
   const handleClickSearch = (e: React.MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
-    navigate(`${Pages.SEARCH}:${searchTerm}`);
+    navigate(`${Pages.SEARCH}${searchTerm}`);
   };
 
   const handleMouseDownSearch = (e: React.MouseEvent<HTMLButtonElement>) => {
