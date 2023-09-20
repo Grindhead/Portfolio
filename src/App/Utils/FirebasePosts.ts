@@ -51,6 +51,38 @@ export const loadPost = async (id: string): Promise<PostType> => {
   }
 };
 
+export const loadPostsByTag = async (
+  tag: string,
+  lastDoc: number | null,
+  pageSize: number
+): Promise<PostType[]> => {
+  const q = query(
+    collection(Db, "posts"),
+    orderBy("id"),
+    where("tags", "array-contains", tag),
+    startAt(lastDoc),
+    limit(pageSize)
+  );
+
+  const querySnapshot = await getDocs(q);
+  const res: PostType[] = [];
+
+  querySnapshot.forEach((doc) => {
+    const data = doc.data();
+    const newPost = new Post(
+      data.title,
+      data.description,
+      data.content,
+      doc.id,
+      data.tags,
+      data.tagList
+    );
+    res.push(newPost);
+  });
+
+  return Promise.resolve(res);
+};
+
 export async function loadPosts(
   lastDoc: number | null,
   pageSize: number

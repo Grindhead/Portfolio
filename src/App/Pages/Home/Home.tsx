@@ -6,9 +6,9 @@ import { PartialPost } from "../../Components/PartialPost/PartialPost";
 import { PaginationComponent } from "../../Components/PaginationComponent/PaginationComponent";
 import { collection, getCountFromServer } from "firebase/firestore";
 import { Db } from "../../Utils/Firebase";
+import { pageSize } from "../../Utils/Constants";
 
 const Home = () => {
-  const pageSize = 3;
   const [posts, setPosts] = useState<PostType[]>([]);
   const count = useRef(0);
 
