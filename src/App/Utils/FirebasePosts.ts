@@ -7,7 +7,6 @@ import {
   query,
   where,
   orderBy,
-  startAfter,
   limit,
   startAt,
 } from "firebase/firestore";
@@ -39,31 +38,6 @@ export const addPost = async (
     return Promise.resolve(docRef.id);
   });
   return Promise.resolve("error");
-};
-
-export const getPaginatedPosts = async (
-  pageSize: number,
-  startAfterDocId: number = 0
-) => {
-  const postRef = collection(Db, "posts");
-  const startAfterDoc = await doc(postRef, startAfterDocId.toString());
-
-  const querySnapshot = await getDocs(
-    query(
-      postRef,
-      where("date", ">", startAfterDocId),
-      orderBy("date"),
-      startAfter(startAfterDoc),
-      limit(pageSize)
-    )
-  );
-
-  const posts: any = [];
-  querySnapshot.forEach((doc) => {
-    posts.push({ id: doc.id, ...doc.data() });
-  });
-
-  return posts;
 };
 
 export const loadPost = async (id: string): Promise<PostType> => {

@@ -26,7 +26,7 @@ exports.handlePostAdded = functions.firestore
         date: new Date().toLocaleDateString(),
         time: new Date().toLocaleTimeString(),
         authorId,
-        id: postCount,
+        id: ref.id,
         tags: postData.tags,
         tagList: postData.tagList,
       },

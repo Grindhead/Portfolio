@@ -17,7 +17,7 @@ const Home = () => {
       const collectionRef = collection(Db, "posts");
       const countSnap = await getCountFromServer(collectionRef);
       count.current = countSnap.data().count;
-      const loadedPosts = await loadPosts(page, pageSize);
+      const loadedPosts = await loadPosts(page * pageSize + 1, pageSize);
       setPosts(loadedPosts);
     } catch (error) {
       console.error("Error loading posts:", error);

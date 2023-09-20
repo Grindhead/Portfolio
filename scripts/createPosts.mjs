@@ -15,27 +15,29 @@ export const db = admin.firestore();
 export const addPosts = async () => {
   try {
     await deletePosts();
-
-    const adminId = config.id;
-    const postsRef = db.collection("posts");
-    const tags = "tag1, tag2, tag3";
-    for (var i = 0; i < 30; i++) {
-      const postCount = await postsRef.count().get();
-      await postsRef.add({
-        title: "title " + i.toString(),
-        description: "description " + i.toString(),
-        content: "content " + i.toString(),
-        authorId: adminId,
-        id: postCount.data().count,
-        tags,
-        tagList: tags.split(","),
-      });
+    for (let i = 1; i <= 30; i++) {
+      await setTimeout(async () => await createPost(i), i * 1000);
     }
-    console.log("Created Documents");
   } catch (error) {
     console.error("Error adding post:", error);
     return "error";
   }
+};
+
+const createPost = async (i) => {
+  const adminId = config.id;
+  const postsRef = db.collection("posts");
+  const tags = "tag1, tag2, tag3";
+
+  await postsRef.add({
+    title: "title " + i.toString(),
+    description: "description " + i.toString(),
+    content: "content " + i.toString(),
+    authorId: adminId,
+    id: i,
+    tags,
+    tagList: tags.split(","),
+  });
 };
 
 addPosts();
