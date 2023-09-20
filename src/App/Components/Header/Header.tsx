@@ -97,7 +97,7 @@ export default function Header() {
             type="search"
             id="search"
             label="Search"
-            variant="outlined"
+            variant="standard"
             className="search"
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
