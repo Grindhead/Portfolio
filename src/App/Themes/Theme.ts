@@ -72,6 +72,7 @@ let AppTheme = createTheme({
       styleOverrides: {
         root: {
           marginTop: "1rem",
+          marginRight: "1rem",
         },
       },
     },
