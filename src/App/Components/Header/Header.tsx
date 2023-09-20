@@ -92,30 +92,30 @@ export default function Header() {
                 Sign In
               </NavLink>
             )}
+            <TextField
+              type="search"
+              id="search"
+              label="Search"
+              variant="standard"
+              className="search"
+              value={searchTerm}
+              onChange={(e) => setSearchTerm(e.target.value)}
+              InputProps={{
+                disableUnderline: true,
+                endAdornment: (
+                  <InputAdornment position="end">
+                    <IconButton
+                      aria-label="search"
+                      onClick={handleClickSearch}
+                      onMouseDown={handleMouseDownSearch}
+                    >
+                      <SearchIcon />
+                    </IconButton>
+                  </InputAdornment>
+                ),
+              }}
+            />
           </div>
-          <TextField
-            type="search"
-            id="search"
-            label="Search"
-            variant="standard"
-            className="search"
-            value={searchTerm}
-            onChange={(e) => setSearchTerm(e.target.value)}
-            InputProps={{
-              disableUnderline: true,
-              endAdornment: (
-                <InputAdornment position="end">
-                  <IconButton
-                    aria-label="search"
-                    onClick={handleClickSearch}
-                    onMouseDown={handleMouseDownSearch}
-                  >
-                    <SearchIcon />
-                  </IconButton>
-                </InputAdornment>
-              ),
-            }}
-          />
         </Toolbar>
         <div className="bars" />
       </header>
