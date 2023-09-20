@@ -102,6 +102,7 @@ export default function Header() {
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
             InputProps={{
+              disableUnderline: true,
               endAdornment: (
                 <InputAdornment position="end">
                   <IconButton
