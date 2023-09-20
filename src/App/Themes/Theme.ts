@@ -73,6 +73,7 @@ let AppTheme = createTheme({
         root: {
           marginTop: "1rem",
           marginRight: "1rem",
+          backgroundColor: "white",
         },
       },
     },
