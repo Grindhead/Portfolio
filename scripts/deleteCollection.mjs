@@ -1,7 +1,7 @@
-import { db } from "./utils.mjs";
+import admin from "firebase-admin";
 
 export async function deleteCollection(collectionPath, batchSize) {
-  const collectionRef = db.collection(collectionPath);
+  const collectionRef = admin.firestore().collection(collectionPath);
   const query = collectionRef.orderBy("__name__").limit(batchSize);
 
   return new Promise((resolve, reject) => {
@@ -19,7 +19,7 @@ function deleteQueryBatch(query, batchSize, resolve, reject) {
       }
 
       // Delete documents in a batch
-      const batch = db.batch();
+      const batch = admin.firestore().batch();
       snapshot.docs.forEach((doc) => {
         batch.delete(doc.ref);
       });

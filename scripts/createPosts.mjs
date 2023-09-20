@@ -1,6 +1,16 @@
+import admin from "firebase-admin";
+import { readFileSync } from "fs";
 import { deletePosts } from "./deletePosts.mjs";
-import config from "../../id.json";
-import { db } from "./utils.mjs";
+import config from "../../id.json" assert { type: "json" };
+
+const serviceAccount = JSON.parse(readFileSync("../key.json", "utf-8"));
+
+export const app = await admin.initializeApp({
+  credential: admin.credential.cert(serviceAccount),
+  databaseURL: "https://portfolio-71c20.firebaseio.com",
+});
+
+export const db = admin.firestore();
 
 export const addPosts = async () => {
   try {
