@@ -68,6 +68,13 @@ let AppTheme = createTheme({
         },
       },
     },
+    MuiChip: {
+      styleOverrides: {
+        root: {
+          marginTop: "1rem",
+        },
+      },
+    },
     MuiPaginationItem: {
       styleOverrides: {
         root: {
