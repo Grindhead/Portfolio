@@ -4,7 +4,7 @@ import { loadPost } from "../../Utils/FirebasePosts";
 import { PostType } from "../../Utils/Post";
 import { Preloader } from "../../Components/Preloader/Preloader";
 import { useNavigate } from "react-router-dom";
-import { Typography, Link } from "@mui/material";
+import { Typography, Link, Chip } from "@mui/material";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 
 const ViewPost = () => {
@@ -30,6 +30,10 @@ const ViewPost = () => {
     }
   }, [hasLoaded, id]);
 
+  const handleDelete = () => {
+    console.info("You clicked the delete icon.");
+  };
+
   if (isLoading || !post) {
     return (
       <div>
@@ -51,11 +55,8 @@ const ViewPost = () => {
         variant="body1"
         dangerouslySetInnerHTML={{ __html: post.content }}
       ></Typography>
-      <Typography variant="h2">Tags</Typography>
-      {post.tagList.map((tag) => (
-        <Typography variant="body1" key={tag}>
-          {tag}
-        </Typography>
+      {post.tagList.map((tag, i) => (
+        <Chip label={tag} variant="outlined" onDelete={handleDelete} />
       ))}
     </div>
   );

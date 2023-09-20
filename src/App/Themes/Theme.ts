@@ -50,7 +50,9 @@ let AppTheme = createTheme({
             },
           },
         },
-
+        h3: {
+          color: "white",
+        },
         subtitle1: {
           fontSize: "1em",
           color: "white",
