@@ -10,6 +10,7 @@ header {
 
 .search {
   max-width: 200px !important;
+  margin-bottom: 2vh !important;
 }
 
 #title {

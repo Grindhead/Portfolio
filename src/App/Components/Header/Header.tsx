@@ -19,7 +19,7 @@ const useStyles = makeStyles((theme: typeof AppTheme) => ({
   },
   link: {
     textDecoration: "none",
-    flexBasis: "4%",
+    flexBasis: "10%",
     marginRight: "1rem",
     textAlign: "center",
     "&:active": {

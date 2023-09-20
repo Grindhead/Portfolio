@@ -2,6 +2,7 @@
   "name": "portfolio",
   "version": "0.1.0",
   "private": false,
+  "license": "MIT",
   "author": {
     "name": "Craig Beswetherick",
     "email": "craigbeswetherick@gmail.com"
