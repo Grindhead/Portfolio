@@ -30,10 +30,6 @@ const ViewPost = () => {
     }
   }, [hasLoaded, id]);
 
-  const handleDelete = () => {
-    console.info("You clicked the delete icon.");
-  };
-
   if (isLoading || !post) {
     return (
       <div>
@@ -56,7 +52,7 @@ const ViewPost = () => {
         dangerouslySetInnerHTML={{ __html: post.content }}
       ></Typography>
       {post.tagList.map((tag, i) => (
-        <Chip label={tag} variant="outlined" onDelete={handleDelete} />
+        <Chip label={tag} variant="outlined" />
       ))}
     </div>
   );
