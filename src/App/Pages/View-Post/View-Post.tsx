@@ -52,7 +52,7 @@ const ViewPost = () => {
         dangerouslySetInnerHTML={{ __html: post.content }}
       ></Typography>
       {post.tagList.map((tag, i) => (
-        <Chip label={tag} variant="outlined" />
+        <Chip label={tag} variant="outlined" key={i} />
       ))}
     </div>
   );

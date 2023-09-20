@@ -38,7 +38,7 @@ const Home = () => {
         <PaginationComponent
           count={count.current / pageSize}
           handleChange={(newPage: number) => {
-            load((newPage - 1) * pageSize);
+            load(newPage - 1);
           }}
         />
       )}
