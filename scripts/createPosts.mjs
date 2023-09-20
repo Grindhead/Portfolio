@@ -18,7 +18,7 @@ export const addPosts = async () => {
 
     const adminId = config.id;
     const postsRef = db.collection("posts");
-
+    const tags = "tag1, tag2, tag3";
     for (var i = 0; i < 30; i++) {
       const postCount = await postsRef.count().get();
       await postsRef.add({
@@ -27,7 +27,8 @@ export const addPosts = async () => {
         content: "content " + i.toString(),
         authorId: adminId,
         id: postCount.data().count,
-        tags: ["tag1, tag2, tag3"],
+        tags,
+        tagList: tags.split(","),
       });
     }
     console.log("Created Documents");

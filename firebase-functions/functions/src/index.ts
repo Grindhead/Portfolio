@@ -14,39 +14,24 @@ exports.handlePostAdded = functions.firestore
     const postData = snapshot.data();
     const authorId = postData.authorId;
     const authorRef = admin.firestore().doc(`users/${authorId}`);
-    const authorData = await getRefData(authorId);
+    const authorData = (await authorRef.get()).data();
     const createdPosts = authorData?.posts || [];
     createdPosts.push(context.params.postId);
-
     const ref = admin.firestore().collection("posts");
-    const postCount = await ref.count().get();
+    const postCount = (await ref.count().get()).data().count;
     const postDocRef = snapshot.ref;
-    await postDocRef.update({
-      publish: false,
-      date: new Date().toLocaleDateString(),
-      time: new Date().toLocaleTimeString(),
-      authorId,
-      id: postCount,
-      tagList: postData.tags.split(","),
-    });
+    await postDocRef.set(
+      {
+        publish: "false",
+        date: new Date().toLocaleDateString(),
+        time: new Date().toLocaleTimeString(),
+        authorId,
+        id: postCount,
+        tags: postData.tags,
+        tagList: postData.tagList,
+      },
+      { merge: true }
+    );
 
     return await authorRef.set({ posts: createdPosts }, { merge: true });
   });
-
-/* 
-
-  Gets the data from a document reference
-
-  @name getRefData
-  @param ref: admin.firestore.DocumentReference<admin.firestore.DocumentData> - The document reference to get data from
-  @returns admin.firestore.DocumentData | undefined
-  @example
-    const authorRef = admin.firestore().doc(`users/${authorId}`);
-    const authorData = await getRefData(authorId);
-*/
-const getRefData = async (
-  ref: admin.firestore.DocumentReference<admin.firestore.DocumentData>
-): Promise<admin.firestore.DocumentData | undefined> => {
-  const authorSnap = await ref.get();
-  return authorSnap.data();
-};

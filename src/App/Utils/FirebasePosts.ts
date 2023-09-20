@@ -34,6 +34,7 @@ export const addPost = async (
     content,
     authorId: userId,
     tags,
+    tagList: tags.split(","),
   }).then((docRef) => {
     return Promise.resolve(docRef.id);
   });
