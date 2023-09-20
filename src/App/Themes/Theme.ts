@@ -36,7 +36,6 @@ let AppTheme = createTheme({
           },
         },
         h2: {
-          fontSize: "14pt",
           color: "white",
           margin: "1rem 0 0 0",
           textTransform: "capitalize",
