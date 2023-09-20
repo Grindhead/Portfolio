@@ -47,6 +47,7 @@ export default function Header() {
 
   const handleClickSearch = (e: React.MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
+    // if the search term is empty, don't navigate, causes error
     if (searchTerm === "") return;
     navigate(`${Pages.SEARCH}${searchTerm}`);
   };
