@@ -12,6 +12,7 @@ header {
     rgba(255, 255, 255, 1) 3%,
     rgba(71, 177, 251, 1) 84%
   );
+  margin-bottom: 2vh;
 }
 
 .search {
