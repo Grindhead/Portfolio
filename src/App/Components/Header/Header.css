@@ -9,10 +9,7 @@ header {
 }
 
 .search {
-  max-width: 20vw;
-  margin-top: -1.2px !important;
-  position: absolute !important;
-  right: 0;
+  max-width: 200px !important;
 }
 
 #title {
