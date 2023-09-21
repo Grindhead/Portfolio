@@ -12,14 +12,17 @@ const SignUp = () => {
   const navigate = useNavigate();
 
   const handleSignUp = (email: string, password: string) => {
-    localStorage.setItem("username", email);
-    emailAndPassword(email, password).then((userCredential: User | Error) => {
-      if (userCredential instanceof Error) {
-        setError(userCredential.message);
-      } else {
-        navigate(Pages.HOME);
+    console.log("handleSignUp", email, password);
+    emailAndPassword(email.trim(), password).then(
+      (userCredential: User | Error) => {
+        if (userCredential instanceof Error) {
+          setError(userCredential.message);
+        } else {
+          localStorage.setItem("username", email);
+          navigate(Pages.HOME);
+        }
       }
-    });
+    );
   };
 
   return (

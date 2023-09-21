@@ -12,11 +12,14 @@ const SignIn = () => {
   const navigate = useNavigate();
 
   const handleSignIn = (email: string, password: string) => {
-    localStorage.setItem("username", email);
-    emailAndPassword(email, password).then((response: User | Error) => {
-      if (response instanceof Error) {
-        setError(response.message);
+    emailAndPassword(email.trim(), password).then((response: User | Error) => {
+      if (
+        response instanceof Error &&
+        response.message === "auth/invalid-email"
+      ) {
+        setError("Password or Email is incorrect");
       } else {
+        localStorage.setItem("username", email);
         navigate(Pages.HOME);
       }
     });
