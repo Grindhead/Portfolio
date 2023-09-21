@@ -12,7 +12,6 @@ const SignIn = () => {
   const navigate = useNavigate();
 
   const handleSignIn = (email: string, password: string) => {
-    console.log(email.trim());
     emailAndPassword(email.trim(), password).then((response: User | Error) => {
       if (
         response instanceof Error &&
@@ -20,7 +19,6 @@ const SignIn = () => {
       ) {
         setError("Password or Email is incorrect");
       } else {
-        console.log(response);
         localStorage.setItem("username", email);
         navigate(Pages.HOME);
       }

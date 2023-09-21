@@ -11,7 +11,6 @@ const SignUp = () => {
   const navigate = useNavigate();
 
   const handleSignUp = (email: string, password: string) => {
-    console.log("handleSignUp", email.trim(), "pass:", password);
     createUserByEmail(email.trim(), password).then(
       (userCredential: User | Error) => {
         if (userCredential instanceof Error) {
