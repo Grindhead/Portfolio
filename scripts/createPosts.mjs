@@ -27,7 +27,7 @@ export const addPosts = async () => {
 const createPost = async (i) => {
   const adminId = config.id;
   const postsRef = db.collection("posts");
-  const tags = "tag1, tag2, tag3";
+  const tags = "tag" + i;
 
   await postsRef.add({
     title: "title " + i.toString(),
