@@ -139,7 +139,6 @@ let AppTheme = createTheme({
       styleOverrides: {
         root: {
           width: "100%",
-          margin: "10px 0",
         },
       },
     },

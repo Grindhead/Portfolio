@@ -1,5 +1,12 @@
 #content {
   flex: 70%;
+
+  background: rgb(71, 177, 251);
+  background: linear-gradient(
+    0deg,
+    rgba(71, 177, 251, 1) 98%,
+    rgba(249, 251, 252, 1) 100%
+  );
   padding-top: 10px;
 }
 
