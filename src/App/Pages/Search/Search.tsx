@@ -23,7 +23,7 @@ const Search = () => {
         const countSnap = await getCountFromServer(collectionRef);
         count.current = countSnap.data().count;
         const loadedPosts = await loadPostsByTag(
-          searchTerm,
+          "tag1",
           page * pageSize + 1,
           pageSize
         );

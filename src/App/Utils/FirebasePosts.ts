@@ -59,7 +59,7 @@ export const loadPostsByTag = async (
   const q = query(
     collection(Db, "posts"),
     orderBy("id"),
-    where("tags", "array-contains", tag),
+    where("tagList", "array-contains", tag),
     startAt(lastDoc),
     limit(pageSize)
   );
