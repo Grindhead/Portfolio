@@ -17,13 +17,11 @@ const Search = () => {
   const load = useCallback(
     async (page) => {
       try {
-        //searchTerm;
-        console.log(page, searchTerm);
         const collectionRef = collection(Db, "posts");
         const countSnap = await getCountFromServer(collectionRef);
         count.current = countSnap.data().count;
         const loadedPosts = await loadPostsByTag(
-          "tag1",
+          searchTerm,
           page * pageSize + 1,
           pageSize
         );
