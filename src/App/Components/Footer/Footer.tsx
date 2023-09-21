@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { Typography, Box } from "@mui/material";
 import EmailIcon from "@mui/icons-material/Email";
 import FacebookIcon from "@mui/icons-material/Facebook";
+import TwitterIcon from "@mui/icons-material/Twitter";
 
 export default function Footer() {
   return (
@@ -24,7 +25,8 @@ export default function Footer() {
             </Link>
           </Typography>
           <Typography variant="subtitle1">
-            <Link to="https://twitter.com/GrindheadGames">X</Link>
+            <TwitterIcon className="icon" />
+            <Link to="https://twitter.com/GrindheadGames">@GrindheadGames</Link>
           </Typography>
         </div>
       </Box>
