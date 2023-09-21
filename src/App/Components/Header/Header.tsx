@@ -44,7 +44,7 @@ export default function Header() {
     });
   };
 
-  const handleClickSearch = (e: React.MouseEvent<HTMLButtonElement>) => {
+  const handleSearch = (e: any) => {
     e.preventDefault();
     // if the search term is empty, don't navigate, causes error
     if (searchTerm === "") return;
@@ -108,7 +108,8 @@ export default function Header() {
                 <InputAdornment position="end">
                   <IconButton
                     aria-label="search"
-                    onClick={handleClickSearch}
+                    onClick={handleSearch}
+                    onKeyDown={handleSearch}
                     onMouseDown={handleMouseDownSearch}
                   >
                     <SearchIcon />
