@@ -16,7 +16,7 @@ export const addPosts = async () => {
   try {
     await deletePosts();
     for (let i = 1; i <= 30; i++) {
-      await setTimeout(async () => await createPost(i), i * 1000);
+      await setTimeout(async () => await createPost(i), i * 2000);
     }
   } catch (error) {
     console.error("Error adding post:", error);
