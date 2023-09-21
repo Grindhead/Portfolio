@@ -11,8 +11,6 @@ export const PaginationComponent: React.FC<PaginationComponentProps> = ({
   handleChange,
   count,
 }) => {
-  console.log(count, "count");
-
   return (
     <Stack spacing={2}>
       <Pagination
