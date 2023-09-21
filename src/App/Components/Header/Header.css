@@ -28,7 +28,6 @@ header {
   font-size: max(10vw, 24pt);
   -webkit-text-stroke-width: 0.1vw;
   -webkit-text-stroke-color: #870000;
-
   position: relative;
   z-index: 3;
   margin: auto;
@@ -58,11 +57,10 @@ header {
 .gear-1,
 .gear-2 {
   position: absolute;
-  z-index: 2;
 }
 
 .gear-1 {
-  left: 18.1%;
+  left: 17.2vw;
   top: 11.5%;
   width: 12%;
   animation: rotateCog 5s linear infinite;

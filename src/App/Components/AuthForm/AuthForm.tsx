@@ -1,3 +1,4 @@
+import "./AuthForm.css";
 import {
   TextField,
   InputAdornment,
@@ -27,7 +28,7 @@ export const AuthForm = ({ callback, label }: AuthFormProps) => {
   };
 
   return (
-    <Box>
+    <Box className="auth">
       <TextField
         id="email"
         name="email"

@@ -8,11 +8,10 @@ import { Pages } from "../../Utils/Pages";
 
 const SignUp = () => {
   const [error, setError] = useState(localStorage.getItem("username") || "");
-
   const navigate = useNavigate();
 
   const handleSignUp = (email: string, password: string) => {
-    console.log("handleSignUp", email, password);
+    console.log("handleSignUp", email.trim(), password);
     emailAndPassword(email.trim(), password).then(
       (userCredential: User | Error) => {
         if (userCredential instanceof Error) {
