@@ -25,8 +25,10 @@ export default function Footer() {
             </Link>
           </Typography>
           <Typography variant="subtitle1">
-            <TwitterIcon className="icon" />
-            <Link to="https://twitter.com/GrindheadGames">@GrindheadGames</Link>
+            <Link to="https://twitter.com/GrindheadGames">
+              <TwitterIcon className="icon" />
+              @GrindheadGames
+            </Link>
           </Typography>
         </div>
       </Box>
