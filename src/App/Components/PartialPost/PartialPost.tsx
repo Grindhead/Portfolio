@@ -15,9 +15,7 @@ export const PartialPost = ({ post }: PostProps) => {
       <Typography variant="h2">
         <NavLink to={Pages.VIEW_POST + post.id}>{post.title}</NavLink>
       </Typography>
-
       <Typography variant="subtitle1">{post.description}</Typography>
-      <br />
       <Typography variant="subtitle1">
         <NavLink to={Pages.VIEW_POST + post.id}>
           View Post <ArrowForwardIcon className="forwardIcon" />
