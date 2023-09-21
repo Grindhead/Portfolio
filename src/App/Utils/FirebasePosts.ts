@@ -51,6 +51,17 @@ export const loadPost = async (id: string): Promise<PostType> => {
   }
 };
 
+export const getCountByTag = async (tag: string): Promise<number> => {
+  const q = query(
+    collection(Db, "posts"),
+    orderBy("id"),
+    where("tagList", "array-contains", tag)
+  );
+
+  const querySnapshot = await getDocs(q);
+  return Promise.resolve(querySnapshot.size);
+};
+
 export const loadPostsByTag = async (
   tag: string,
   lastDoc: number | null,

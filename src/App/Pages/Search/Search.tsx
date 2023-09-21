@@ -5,9 +5,9 @@ import { Preloader } from "../../Components/Preloader/Preloader";
 import { PartialPost } from "../../Components/PartialPost/PartialPost";
 import { PaginationComponent } from "../../Components/PaginationComponent/PaginationComponent";
 import { pageSize } from "../../Utils/Constants";
-import { collection, getCountFromServer } from "firebase/firestore";
+import { collection } from "firebase/firestore";
 import { Db } from "../../Utils/Firebase";
-import { loadPostsByTag } from "../../Utils/FirebasePosts";
+import { loadPostsByTag, getCountByTag } from "../../Utils/FirebasePosts";
 
 const Search = () => {
   const { searchTerm } = useParams();
@@ -15,17 +15,11 @@ const Search = () => {
   const count = useRef(0);
 
   const load = useCallback(
-    async (page) => {
+    async (page: number) => {
       try {
-        const collectionRef = collection(Db, "posts");
-        const countSnap = await getCountFromServer(collectionRef);
-        count.current = countSnap.data().count;
-        const loadedPosts = await loadPostsByTag(
-          searchTerm,
-          page * pageSize + 1,
-          pageSize
-        );
-        console.log(loadedPosts, "loadedPosts");
+        count.current = await getCountByTag(searchTerm);
+        const loadedPosts = await loadPostsByTag(searchTerm, page, pageSize);
+        console.log(loadedPosts.length, "loadedPosts");
         setPosts(loadedPosts);
       } catch (error) {
         console.error("Error loading posts:", error);
@@ -44,7 +38,7 @@ const Search = () => {
       {posts.map((post, index) => (
         <PartialPost post={post} key={index}></PartialPost>
       ))}
-      {posts.length > 0 && (
+      {posts.length > pageSize && (
         <PaginationComponent
           count={count.current / pageSize}
           handleChange={(newPage: number) => {
