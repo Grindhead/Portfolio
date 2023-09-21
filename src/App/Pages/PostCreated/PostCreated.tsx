@@ -1,9 +1,9 @@
+import "./PostCreated.css";
 import { Typography } from "@mui/material";
 import { Link, useParams } from "react-router-dom";
 import { Pages } from "../../Utils/Pages";
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
-import "./PostCreated.css";
 
 const PostCreated = () => {
   const { id } = useParams();

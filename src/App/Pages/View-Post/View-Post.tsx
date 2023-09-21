@@ -1,3 +1,4 @@
+import "./ViewPost.css";
 import { useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { loadPost } from "../../Utils/FirebasePosts";
@@ -7,6 +8,7 @@ import { useNavigate } from "react-router-dom";
 import { Typography, Link, Chip } from "@mui/material";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import { Auth } from "../../Utils/Firebase";
+import EditNoteIcon from "@mui/icons-material/EditNote";
 
 const ViewPost = () => {
   const { id } = useParams();
@@ -40,6 +42,11 @@ const ViewPost = () => {
       </div>
     );
   }
+  if (post) {
+    console.log(Auth.currentUser?.uid, post.authorId);
+  } else {
+    console.log("post is null");
+  }
 
   return (
     <div>
@@ -56,7 +63,12 @@ const ViewPost = () => {
         <Chip label={tag} variant="outlined" key={i} />
       ))}
       {Auth.currentUser?.uid === post.authorId && (
-        <Link href={`/edit/${post.id}`}>Edit</Link>
+        <div>
+          <br />
+          <Link className="edit" href={`/edit/${post.id}`}>
+            <EditNoteIcon className="editIcon" /> Edit
+          </Link>
+        </div>
       )}
     </div>
   );
