@@ -7,11 +7,12 @@ import { AuthForm } from "../../Components/AuthForm/AuthForm";
 import { Pages } from "../../Utils/Pages";
 
 const SignUp = () => {
-  const [error, setError] = useState("");
+  const [error, setError] = useState(localStorage.getItem("username") || "");
 
   const navigate = useNavigate();
 
   const handleSignUp = (email: string, password: string) => {
+    localStorage.setItem("username", email);
     emailAndPassword(email, password).then((userCredential: User | Error) => {
       if (userCredential instanceof Error) {
         setError(userCredential.message);

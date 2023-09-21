@@ -2,8 +2,8 @@ import { User, signInWithEmailAndPassword } from "firebase/auth";
 import { Auth } from "./Firebase";
 
 export const emailAndPassword = async (
-  email: string,
-  password: string
+  password: string,
+  email: string = ""
 ): Promise<User | Error> => {
   try {
     const userCredential = await signInWithEmailAndPassword(

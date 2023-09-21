@@ -12,6 +12,7 @@ const SignIn = () => {
   const navigate = useNavigate();
 
   const handleSignIn = (email: string, password: string) => {
+    localStorage.setItem("username", email);
     emailAndPassword(email, password).then((response: User | Error) => {
       if (response instanceof Error) {
         setError(response.message);

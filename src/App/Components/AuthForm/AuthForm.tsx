@@ -15,7 +15,7 @@ interface AuthFormProps {
 
 export const AuthForm = ({ callback, label }: AuthFormProps) => {
   const [showPassword, setShowPassword] = useState(false);
-  const [email, setEmail] = useState("");
+  const [email, setEmail] = useState(localStorage.getItem("username") || "");
   const [password, setPassword] = useState("");
 
   const handleClickShowPassword = () => setShowPassword((show) => !show);
