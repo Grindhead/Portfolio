@@ -5,6 +5,7 @@ export type PostType = {
   id: string;
   tags: string;
   tagList: string[];
+  authorId?: string;
 };
 
 class Post implements PostType {

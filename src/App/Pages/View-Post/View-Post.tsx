@@ -6,6 +6,7 @@ import { Preloader } from "../../Components/Preloader/Preloader";
 import { useNavigate } from "react-router-dom";
 import { Typography, Link, Chip } from "@mui/material";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
+import { Auth } from "../../Utils/Firebase";
 
 const ViewPost = () => {
   const { id } = useParams();
@@ -54,6 +55,9 @@ const ViewPost = () => {
       {post.tagList.map((tag, i) => (
         <Chip label={tag} variant="outlined" key={i} />
       ))}
+      {Auth.currentUser?.uid === post.authorId && (
+        <Link href={`/edit/${post.id}`}>Edit</Link>
+      )}
     </div>
   );
 };

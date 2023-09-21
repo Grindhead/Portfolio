@@ -4,7 +4,7 @@ import * as admin from "firebase-admin";
 admin.initializeApp();
 
 /*
-  Adds the post to the author's posts array and splits the tags into an array
+  Adds the post to the author's posts
 
   @name handlePostAdded
 */
@@ -26,9 +26,7 @@ exports.handlePostAdded = functions.firestore
         date: new Date().toLocaleDateString(),
         time: new Date().toLocaleTimeString(),
         authorId,
-        id: ref.id,
-        tags: postData.tags,
-        tagList: postData.tagList,
+        id: postCount,
       },
       { merge: true }
     );
