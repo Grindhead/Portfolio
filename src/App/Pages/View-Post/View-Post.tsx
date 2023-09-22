@@ -9,6 +9,7 @@ import { Typography, Link, Chip } from "@mui/material";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import { Auth } from "../../Utils/Firebase";
 import EditNoteIcon from "@mui/icons-material/EditNote";
+import { Pages } from "../../Utils/Pages";
 
 const ViewPost = () => {
   const { id } = useParams();
@@ -65,7 +66,7 @@ const ViewPost = () => {
       {Auth.currentUser?.uid === post.authorId && (
         <div>
           <br />
-          <Link className="edit" href={`/edit/${post.id}`}>
+          <Link className="edit" href={Pages.EDIT_POST + id}>
             <EditNoteIcon className="editIcon" /> Edit
           </Link>
         </div>
