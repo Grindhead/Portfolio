@@ -7,7 +7,8 @@ export const Pages = {
   SEARCH: "/search/",
   CREATE_POST: "/post/create",
   POST_CREATED: "/post/created/",
+  POST_EDITED: "/post/edited/",
+  POST_DELETED: "/post/deleted",
   VIEW_POST: "/post/",
   EDIT_POST: "/post/edit/",
-  POST_DELETED: "/post/deleted",
 };

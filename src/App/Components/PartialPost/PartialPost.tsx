@@ -1,15 +1,10 @@
 import "./PartialPost.css";
 import { Box, Typography } from "@mui/material";
 import { NavLink } from "react-router-dom";
-import { PostType } from "../../Utils/Post";
 import { Pages } from "../../Utils/Pages";
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 
-interface PostProps {
-  post: PostType;
-}
-
-export const PartialPost = ({ post }: PostProps) => {
+export const PartialPost = ({ post }) => {
   return (
     <Box className="partialPost">
       <Typography variant="h2">

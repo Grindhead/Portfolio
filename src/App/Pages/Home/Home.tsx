@@ -1,5 +1,5 @@
 import { useState, useEffect, useCallback, useRef } from "react";
-import { loadPosts } from "../../Utils/FirebasePosts";
+import { loadAllPostsFromCollection } from "../../Utils/FirebasePosts";
 import { PostType } from "../../Utils/Post";
 import { Preloader } from "../../Components/Preloader/Preloader";
 import { PartialPost } from "../../Components/PartialPost/PartialPost";
@@ -17,7 +17,10 @@ const Home = () => {
       const collectionRef = collection(Db, "posts");
       const countSnap = await getCountFromServer(collectionRef);
       count.current = countSnap.data().count;
-      const loadedPosts = await loadPosts(page * pageSize + 1, pageSize);
+      const loadedPosts = await loadAllPostsFromCollection(
+        page * pageSize + 1,
+        pageSize
+      );
       setPosts(loadedPosts);
     } catch (error) {
       console.error("Error loading posts:", error);

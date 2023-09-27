@@ -11,7 +11,7 @@ import {
   startAt,
 } from "firebase/firestore";
 import { Db, Auth } from "./Firebase";
-import Post, { PostType } from "./Post";
+import { PostType } from "./Post";
 
 export const addPost = async (
   title: string,
@@ -45,9 +45,7 @@ export const loadPost = async (id: string): Promise<PostType> => {
   const docSnap = await getDoc(docRef);
 
   if (docSnap.exists()) {
-    return Promise.resolve(docSnap.data() as PostType);
-  } else {
-    console.log("No such document!");
+    return docSnap.data() as PostType;
   }
 };
 
@@ -79,22 +77,13 @@ export const loadPostsByTag = async (
   const res: PostType[] = [];
 
   querySnapshot.forEach((doc) => {
-    const data = doc.data();
-    const newPost = new Post(
-      data.title,
-      data.description,
-      data.content,
-      doc.id,
-      data.tags,
-      data.tagList
-    );
-    res.push(newPost);
+    res.push(doc.data() as PostType);
   });
 
   return Promise.resolve(res);
 };
 
-export async function loadPosts(
+export async function loadAllPostsFromCollection(
   lastDoc: number | null,
   pageSize: number
 ): Promise<PostType[]> {
@@ -109,16 +98,7 @@ export async function loadPosts(
   const res: PostType[] = [];
 
   querySnapshot.forEach((doc) => {
-    const data = doc.data();
-    const newPost = new Post(
-      data.title,
-      data.description,
-      data.content,
-      doc.id,
-      data.tags,
-      data.tagList
-    );
-    res.push(newPost);
+    res.push(doc.data() as PostType);
   });
 
   return Promise.resolve(res);

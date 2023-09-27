@@ -13,8 +13,6 @@ import { Pages } from "../../Utils/Pages";
 
 const ViewPost = () => {
   const { id } = useParams();
-
-  const [isLoading, setIsLoading] = useState<boolean>(false);
   const [hasLoaded, setHasLoaded] = useState<boolean>(false);
   const [post, setPost] = useState<PostType>();
 
@@ -22,10 +20,8 @@ const ViewPost = () => {
 
   useEffect(() => {
     const getPost = async () => {
-      setIsLoading(true);
       const loadedPost = await loadPost(id);
       setPost(loadedPost);
-      setIsLoading(false);
       setHasLoaded(true);
     };
 
@@ -34,7 +30,7 @@ const ViewPost = () => {
     }
   }, [hasLoaded, id]);
 
-  if (isLoading || !post) {
+  if (post !== undefined) {
     return (
       <div>
         <div>
@@ -43,7 +39,8 @@ const ViewPost = () => {
       </div>
     );
   }
-  if (post) {
+
+  if (post !== undefined && Auth.currentUser?.uid === post.authorId) {
     console.log(Auth.currentUser?.uid, post.authorId);
   } else {
     console.log("post is null");
