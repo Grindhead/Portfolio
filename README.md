@@ -1,3 +1,7 @@
+THIS IS A WORK IN PROGRESS, NOT READY FOR PRODUCTION.
+MOST THINGS ARE NOT IMPLEMENTED YET.
+THE CODE IS A MESS, I'M WORKING ON IT.
+
 ### `yarn start` - to run
 
 ### `yarn test` - to test
