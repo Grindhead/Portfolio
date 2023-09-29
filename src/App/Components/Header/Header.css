@@ -71,6 +71,27 @@ header {
   }
 }
 
+@media only screen and (max-width: 417px) {
+  .gear-1 {
+    left: 18.4%;
+    top: 11%;
+  }
+}
+
+@media only screen and (max-width: 380px) {
+  .gear-1 {
+    left: 17%;
+    top: 11%;
+  }
+}
+
+@media only screen and (max-width: 340px) {
+  .gear-1 {
+    left: 18%;
+    top: 10%;
+  }
+}
+
 .gear-2 {
   left: 29%;
   top: 14%;
