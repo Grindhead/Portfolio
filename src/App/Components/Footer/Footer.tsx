@@ -16,25 +16,25 @@ export default function Footer() {
           <Typography variant="subtitle1">
             <Link to="mailto:craigbeswetherick@gmail.com">
               <EmailIcon className="icon" />
-              craigbeswetherick@gmail.com
+              Email
             </Link>
           </Typography>
           <Typography variant="subtitle1">
             <Link to="https://www.facebook.com/gaming/GrindheadGames">
               <FacebookIcon className="icon" />
-              facebook
+              Facebook
             </Link>
           </Typography>
           <Typography variant="subtitle1">
             <Link to="https://twitter.com/GrindheadGames">
               <TwitterIcon className="icon" />
-              @GrindheadGames
+              Twitter
             </Link>
           </Typography>
           <Typography variant="subtitle1">
             <Link to="https://github.com/Grindhead">
               <GitHubIcon className="icon" />
-              @GrindheadGames
+              Github
             </Link>
           </Typography>
         </div>
