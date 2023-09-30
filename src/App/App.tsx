@@ -12,9 +12,9 @@ import { Preloader } from "./Components/Preloader/Preloader";
 
 function App() {
   return (
-    <Container id="main" maxWidth={false} disableGutters={true}>
+    <Container id="container" maxWidth={false} disableGutters={true}>
       <Header />
-      <Container id="content" maxWidth={false}>
+      <Container maxWidth={false}>
         <Suspense fallback={<Preloader />}>
           <Outlet />
         </Suspense>

@@ -4,6 +4,7 @@ import { Typography, Box } from "@mui/material";
 import EmailIcon from "@mui/icons-material/Email";
 import FacebookIcon from "@mui/icons-material/Facebook";
 import TwitterIcon from "@mui/icons-material/Twitter";
+import GitHubIcon from "@mui/icons-material/GitHub";
 
 export default function Footer() {
   return (
@@ -27,6 +28,12 @@ export default function Footer() {
           <Typography variant="subtitle1">
             <Link to="https://twitter.com/GrindheadGames">
               <TwitterIcon className="icon" />
+              @GrindheadGames
+            </Link>
+          </Typography>
+          <Typography variant="subtitle1">
+            <Link to="https://github.com/Grindhead">
+              <GitHubIcon className="icon" />
               @GrindheadGames
             </Link>
           </Typography>
