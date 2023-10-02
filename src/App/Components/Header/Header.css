@@ -70,13 +70,13 @@ header {
 
 @media only screen and (max-width: 600px) {
   .toy-machine {
-    background-image: url("../../../../public/header-background-600.png");
+    background-image: url("../../../../public/header-background-600w.png");
   }
 }
 
 @media only screen and (max-width: 900px) {
   .toy-machine {
-    background-image: url("../../../../public/header-background-900.png");
+    background-image: url("../../../../public/header-background-900w.png");
   }
 }
 
