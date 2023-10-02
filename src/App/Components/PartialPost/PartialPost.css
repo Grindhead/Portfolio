@@ -1,5 +1,6 @@
 .partialPost {
   margin-bottom: 1.2em;
+  white-space: nowrap;
 }
 
 .forwardIcon {

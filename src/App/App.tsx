@@ -14,11 +14,13 @@ function App() {
   return (
     <Container id="container" maxWidth={false} disableGutters={true}>
       <Header />
-      <Container maxWidth={false}>
-        <Suspense fallback={<Preloader />}>
-          <Outlet />
-        </Suspense>
-      </Container>
+      <main>
+        <Container maxWidth={false}>
+          <Suspense fallback={<Preloader />}>
+            <Outlet />
+          </Suspense>
+        </Container>
+      </main>
       <Footer />
     </Container>
   );

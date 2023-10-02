@@ -1,3 +1,4 @@
+import "./PaginationComponent.css";
 import * as React from "react";
 import Pagination from "@mui/material/Pagination";
 import Stack from "@mui/material/Stack";
@@ -14,6 +15,7 @@ export const PaginationComponent: React.FC<PaginationComponentProps> = ({
   return (
     <Stack spacing={2}>
       <Pagination
+        className="pagination"
         count={Math.floor(count)}
         onChange={(e: React.ChangeEvent<unknown>, value: number) =>
           handleChange(value)
