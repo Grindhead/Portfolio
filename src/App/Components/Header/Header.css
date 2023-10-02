@@ -19,12 +19,13 @@ header {
 }
 
 .clouds {
+  background-position-y: center;
   width: 100vw;
   height: 100%;
   position: absolute;
   background-position: absolute;
   background-image: url("../../../../public/clouds-1200w.png");
-  background-size: 1200px auto;
+  background-size: 100vw 100%;
   background-repeat: repeat-x;
   -webkit-animation: moveClouds 20s linear;
   animation: moveClouds 20s linear;
@@ -154,19 +155,19 @@ header {
 
 @-webkit-keyframes moveClouds {
   from {
-    background-position: 0% -20%;
+    background-position: 0% 0;
   }
   to {
-    background-position: -1200px -20%;
+    background-position: -100vw 0;
   }
 }
 
 @keyframes moveClouds {
   from {
-    background-position: 0% -20%;
+    background-position: 0% 0;
   }
   to {
-    background-position: -1200px -20%;
+    background-position: -100vw 0;
   }
 }
 
@@ -182,6 +183,24 @@ header {
   .toy-machine {
     background-image: url("../../../../public/header-background-600w.png");
   }
+
+  @-webkit-keyframes moveClouds {
+    from {
+      background-position: 0% 0;
+    }
+    to {
+      background-position: -600px 0;
+    }
+  }
+
+  @keyframes moveClouds {
+    from {
+      background-position: 0% 0;
+    }
+    to {
+      background-position: -600px 0;
+    }
+  }
 }
 
 @media only screen and (max-width: 900px) {
@@ -195,5 +214,23 @@ header {
 
   .toy-machine {
     background-image: url("../../../../public/header-background-900w.png");
+  }
+
+  @-webkit-keyframes moveClouds {
+    from {
+      background-position: 0% 0;
+    }
+    to {
+      background-position: -900px 0;
+    }
+  }
+
+  @keyframes moveClouds {
+    from {
+      background-position: 0% 0;
+    }
+    to {
+      background-position: -900px 0;
+    }
   }
 }
