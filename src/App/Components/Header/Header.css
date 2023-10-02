@@ -17,8 +17,8 @@ header {
   min-width: 320px;
   background-image: url("https://static.pexels.com/photos/414171/pexels-photo-414171.jpeg");
   background-size: cover;
-  -webkit-animation: slidein 100s;
-  animation: slidein 100s;
+  -webkit-animation: moveClouds 30s linear;
+  animation: moveClouds 30s linear;
   background-blend-mode: difference;
 
   -webkit-animation-fill-mode: forwards;
@@ -160,7 +160,7 @@ header {
   margin: -0.5% 0;
 }
 
-@-webkit-keyframes slidein {
+@-webkit-keyframes moveClouds {
   from {
     background-position: top;
     background-size: 3000px;
@@ -171,7 +171,7 @@ header {
   }
 }
 
-@keyframes slidein {
+@keyframes moveClouds {
   from {
     background-position: top;
     background-size: 3000px;
