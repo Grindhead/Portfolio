@@ -150,16 +150,6 @@ header {
   }
 }
 
-.bars {
-  height: 1vw;
-  min-height: 16px;
-  width: 100%;
-  position: absolute;
-  background-image: url("../../../Assets/Images/red-pipe.png");
-  background-repeat: repeat-x;
-  margin: -0.5% 0;
-}
-
 @-webkit-keyframes slidein {
   from {
     background-position: top;
