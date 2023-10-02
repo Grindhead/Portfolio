@@ -4,7 +4,7 @@ import im from "imagemagick";
 const sourceDir = "./src/Assets/Images/";
 const paths = ["header-background", "houses"];
 const dest = "./public/";
-const resolutions = [1024];
+const resolutions = [1200, 900, 600];
 const ext = ".png";
 
 const resize = (path, size) => {

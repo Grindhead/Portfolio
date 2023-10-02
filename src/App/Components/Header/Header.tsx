@@ -59,7 +59,7 @@ export default function Header() {
     <>
       <header>
         <div className="clouds" />
-        <div className="background">
+        <div className="toy-machine">
           <img src={Gear} alt="background" className="gear-1" />
           <img src={Gear} alt="background" className="gear-2" />
           <h1 id="title">GRINDHEAD</h1>
