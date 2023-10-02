@@ -19,7 +19,7 @@ header {
   background-size: cover;
   -webkit-animation: slidein 100s;
   animation: slidein 100s;
-  background-blend-mode: difference;
+  margin-bottom: 4%;
 
   -webkit-animation-fill-mode: forwards;
   animation-fill-mode: forwards;
