@@ -2,7 +2,7 @@ import fs from "fs";
 import im from "imagemagick";
 
 const sourceDir = "./src/Assets/Images/";
-const paths = ["header-background", "houses"];
+const paths = ["header-background", "houses", "clouds", "clouds-2"];
 const dest = "./public/";
 const resolutions = [1200, 900, 600];
 const ext = ".png";
