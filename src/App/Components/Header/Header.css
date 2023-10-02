@@ -19,13 +19,16 @@ header {
 }
 
 .clouds {
-  width: 100%;
+  width: 100vw;
   height: 100%;
   position: absolute;
+  background-position: absolute;
   background-image: url("../../../../public/clouds-1200w.png");
-  background-size: 100%;
-  -webkit-animation: moveClouds 30s linear;
-  animation: moveClouds 30s linear;
+  background-size: 1200px auto;
+  background-repeat: repeat-x;
+  -webkit-animation: moveClouds 20s linear;
+  animation: moveClouds 20s linear;
+  opacity: 0.4;
 
   -webkit-animation-fill-mode: forwards;
   animation-fill-mode: forwards;
@@ -151,23 +154,19 @@ header {
 
 @-webkit-keyframes moveClouds {
   from {
-    background-position: top;
-    background-size: 3000px;
+    background-position: 0% -20%;
   }
   to {
-    background-position: -100px 0px;
-    background-size: 2750px;
+    background-position: -1200px -20%;
   }
 }
 
 @keyframes moveClouds {
   from {
-    background-position: top;
-    background-size: 3000px;
+    background-position: 0% -20%;
   }
   to {
-    background-position: -100px 0px;
-    background-size: 2750px;
+    background-position: -1200px -20%;
   }
 }
 
