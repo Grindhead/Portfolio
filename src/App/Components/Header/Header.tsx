@@ -58,7 +58,9 @@ export default function Header() {
   return (
     <>
       <header>
+        <div className="clouds-2" />
         <div className="clouds" />
+
         <div className="toy-machine">
           <img src={Gear} alt="background" className="gear-1" />
           <img src={Gear} alt="background" className="gear-2" />
