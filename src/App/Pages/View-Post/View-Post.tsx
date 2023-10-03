@@ -10,6 +10,7 @@ import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import { Auth } from "../../Utils/Firebase";
 import EditNoteIcon from "@mui/icons-material/EditNote";
 import { Pages } from "../../Utils/Pages";
+import { Helmet } from "react-helmet";
 
 const ViewPost = () => {
   const { id } = useParams();
@@ -30,7 +31,7 @@ const ViewPost = () => {
     }
   }, [hasLoaded, id]);
 
-  if (post !== undefined) {
+  if (post === undefined) {
     return (
       <div>
         <div>
@@ -48,6 +49,13 @@ const ViewPost = () => {
 
   return (
     <div>
+      <Helmet>
+        <title>{post.title}</title>
+        <meta id="keywords">{post.tagList.toString()}</meta>
+        <meta id="description">{post.description}</meta>
+        <meta id="meta-description">{post.description}</meta>
+        <meta id="og-title">{post.title}</meta>
+      </Helmet>
       <Link onClick={() => navigate(-1)}>
         <ArrowBackIcon className="backArrow" />
         Back
