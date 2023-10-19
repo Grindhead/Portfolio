@@ -51,8 +51,9 @@ const ViewPost = () => {
     <div>
       <Helmet>
         <title>{post.title}</title>
-        <meta id="keywords">{post.tagList.toString()}</meta>
-        <meta id="description">{post.description}</meta>
+        <meta name="keywords">{post.tagList.toString()}</meta>
+        <meta name="description">{post.description}</meta>
+        <meta name="author" content={post.authorId}></meta>
         <meta id="meta-description">{post.description}</meta>
         <meta id="og-title">{post.title}</meta>
       </Helmet>

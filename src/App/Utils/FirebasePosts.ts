@@ -41,12 +41,14 @@ export const addPost = async (
 };
 
 export const loadPost = async (id: string): Promise<PostType> => {
-  const docRef = doc(Db, "posts", id);
-  const docSnap = await getDoc(docRef);
+  const q = query(collection(Db, "posts"), where("id", "==", id));
+  const docSnap = await getDocs(q);
+  console.log("loading", id);
+  const res = docSnap.forEach((doc) => {
+    console.log(doc.data(), id);
+  });
 
-  if (docSnap.exists()) {
-    return docSnap.data() as PostType;
-  }
+  return Promise.resolve(res as unknown as PostType);
 };
 
 export const getCountByTag = async (tag: string): Promise<number> => {

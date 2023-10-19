@@ -10,8 +10,8 @@ export const PartialPost = ({ post }) => {
       <Typography variant="h2">
         <NavLink to={Pages.VIEW_POST + post.id}>{post.title}</NavLink>
       </Typography>
-      <Typography variant="subtitle1">{post.description}</Typography>
-      <Typography variant="subtitle1">
+      <Typography variant="body1">{post.description}</Typography>
+      <Typography variant="body1">
         <NavLink to={Pages.VIEW_POST + post.id}>
           View Post <ArrowForwardIcon className="forwardIcon" />
         </NavLink>
