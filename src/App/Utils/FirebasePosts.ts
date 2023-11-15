@@ -19,13 +19,23 @@ export const addPost = async (
   content: string,
   tags: string
 ): Promise<string> => {
+
+  if(!Auth.currentUser) {
+    throw new Error("No CurrentUser");
+  }
+
   const usersRef = collection(Db, "users");
   const querySnapshot = await getDocs(
     query(usersRef, where("uid", "==", Auth.currentUser?.uid))
   );
 
   const userDoc = querySnapshot.docs[0];
-  const userId = userDoc.id;
+
+  if(!userDoc) {
+    throw new Error("No User Doc Found for " + Auth.currentUser?.uid);
+  }
+
+  const userId = userDoc?.id;
 
   await addDoc(collection(Db, "posts"), {
     title,

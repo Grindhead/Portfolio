@@ -26,7 +26,7 @@ let AppTheme = createTheme({
         body1: {
           color: "white",
           "&::first-letter": {
-            "initial-letter": 3,
+            "initialLetter": 3,
           },
 
           a: {
