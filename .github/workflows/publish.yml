@@ -29,6 +29,10 @@ jobs:
         with:
           publish: pnpm run build
 
+      - name: Install AWS CLI
+        run: |
+          sudo apt-get install -y awscli
+
       - name: Deploy to S3
         run: |
           aws s3 sync ./build/ s3://portfolio-grindhead --delete
