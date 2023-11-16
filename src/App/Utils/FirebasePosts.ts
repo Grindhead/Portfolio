@@ -1,14 +1,14 @@
 import {
-  doc,
   collection,
   addDoc,
-  getDoc,
   getDocs,
   query,
   where,
   orderBy,
   limit,
   startAt,
+  getDoc,
+  doc,
 } from "firebase/firestore";
 import { Db, Auth } from "./Firebase";
 import { PostType } from "./Post";
@@ -51,14 +51,10 @@ export const addPost = async (
 };
 
 export const loadPost = async (id: string): Promise<PostType> => {
-  const q = query(collection(Db, "posts"), where("id", "==", id));
-  const docSnap = await getDocs(q);
-  console.log("loading", id);
-  const res = docSnap.forEach((doc) => {
-    console.log(doc.data(), id);
-  });
-
-  return Promise.resolve(res as unknown as PostType);
+  const docRef = doc(Db, 'posts', id);
+  const docSnap = await getDoc(docRef);
+  console.log("loading", id, docSnap);
+  return Promise.resolve(docSnap.data() as PostType);
 };
 
 export const getCountByTag = async (tag: string): Promise<number> => {

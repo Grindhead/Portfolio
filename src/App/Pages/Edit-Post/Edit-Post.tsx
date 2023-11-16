@@ -1,3 +1,4 @@
+import * as React from 'react';
 import { addPost } from "../../Utils/FirebasePosts";
 import { useNavigate } from "react-router-dom";
 import { Pages } from "../../Utils/Pages";

@@ -1,4 +1,5 @@
 import "./ViewPost.css";
+import * as React from 'react';
 import { useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { loadPost } from "../../Utils/FirebasePosts";
@@ -6,11 +7,11 @@ import { PostType } from "../../Utils/Post";
 import { Preloader } from "../../Components/Preloader/Preloader";
 import { useNavigate } from "react-router-dom";
 import { Typography, Link, Chip } from "@mui/material";
-import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import { Auth } from "../../Utils/Firebase";
-import EditNoteIcon from "@mui/icons-material/EditNote";
 import { Pages } from "../../Utils/Pages";
 import { Helmet } from "react-helmet";
+import ArrowBackIcon from "@mui/icons-material/ArrowBack";
+import EditNoteIcon from "@mui/icons-material/EditNote";
 
 const ViewPost = () => {
   const { id } = useParams();
@@ -21,7 +22,8 @@ const ViewPost = () => {
 
   useEffect(() => {
     const getPost = async () => {
-      const loadedPost = await loadPost(id);
+      const loadedPost = await loadPost(String(id));
+      console.log('got post', loadedPost)
       setPost(loadedPost);
       setHasLoaded(true);
     };

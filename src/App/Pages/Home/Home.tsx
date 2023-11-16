@@ -1,3 +1,4 @@
+import * as React from 'react';
 import { useState, useEffect, useCallback, useRef } from "react";
 import { loadAllPostsFromCollection } from "../../Utils/FirebasePosts";
 import { PostType } from "../../Utils/Post";
@@ -21,6 +22,7 @@ const Home = () => {
         page * pageSize + 1,
         pageSize
       );
+      console.log(loadedPosts, 'posts');
       setPosts(loadedPosts);
     } catch (error) {
       console.error("Error loading posts:", error);

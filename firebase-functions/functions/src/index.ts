@@ -17,8 +17,6 @@ exports.handlePostAdded = functions.firestore
     const authorData = (await authorRef.get()).data();
     const createdPosts = authorData?.posts || [];
     createdPosts.push(context.params.postId);
-    const ref = admin.firestore().collection("posts");
-    const postCount = (await ref.count().get()).data().count;
     const postDocRef = snapshot.ref;
     await postDocRef.set(
       {
@@ -26,7 +24,7 @@ exports.handlePostAdded = functions.firestore
         date: new Date().toLocaleDateString(),
         time: new Date().toLocaleTimeString(),
         authorId,
-        id: postCount,
+        id: snapshot.id,
       },
       { merge: true }
     );

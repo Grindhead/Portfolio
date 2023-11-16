@@ -1,3 +1,4 @@
+import * as React from 'react';
 import { useState } from "react";
 import { Typography, Link, Box } from "@mui/material";
 import { emailAndPassword } from "../../Utils/FirebaseAuth";

@@ -1,3 +1,4 @@
+import * as React from 'react';
 import { useParams } from "react-router-dom";
 import { useState, useEffect, useCallback, useRef } from "react";
 import { PostType } from "../../Utils/Post";
@@ -15,6 +16,11 @@ const Search = () => {
 
   const load = useCallback(
     async (page: number) => {
+
+      if(!searchTerm ) {
+        return <h1>No search term</h1>
+      }
+
       try {
         setIsLoading(true);
         count.current = await getCountByTag(searchTerm);

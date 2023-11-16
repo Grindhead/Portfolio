@@ -1,3 +1,4 @@
+import * as React from 'react';
 import "./PostCreated.css";
 import { Typography } from "@mui/material";
 import { Link, useParams } from "react-router-dom";
