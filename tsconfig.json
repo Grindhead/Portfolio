@@ -30,6 +30,6 @@
     "skipLibCheck": true,
     "types": ["node"]
   },
-  "include": ["src/**/*.ts"],
+  "include": ["src/**/*.ts", "src/**/*.png"],
   "exclude": ["node_modules", "dist", "*.md", "src/Resources"]
 }

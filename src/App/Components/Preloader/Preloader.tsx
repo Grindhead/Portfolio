@@ -1,10 +1,11 @@
-import gear from "../../../Assets/Images/gear.png";
+import * as React from 'react';
+import Gear from "../../../Assets/Images/gear.png";
 import "./Preloader.css";
 
 export const Preloader = () => {
   return (
     <div className="preloaderContainer">
-      <img src={gear} alt="preloader" className="preloader" />
+      <img src={Gear} alt="preloader" className="preloader" />
     </div>
   );
 };

@@ -1,3 +1,4 @@
+import * as React from 'react';
 import "./Footer.css";
 import { Link } from "react-router-dom";
 import { Typography, Box } from "@mui/material";

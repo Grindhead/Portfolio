@@ -1,4 +1,5 @@
 import "./Header.css";
+import * as React from 'react';
 import "animate.css";
 import { NavLink } from "react-router-dom";
 import { Toolbar, TextField, InputAdornment, IconButton } from "@mui/material";
@@ -9,7 +10,7 @@ import { Pages } from "../../Utils/Pages";
 import { useState } from "react";
 import SearchIcon from "@mui/icons-material/Search";
 import AppTheme from "../../Themes/Theme";
-import Gear from "../../../Assets/Images/gear.png";
+import * as Gear from './gear.png';
 
 const useStyles = makeStyles((theme: typeof AppTheme) => ({
   navlinks: {
